@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>About Me</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
+</head>
+<body class="fade">
+    <header>
+        <h1>About Me</h1>
+        <nav id="navbar">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Me</a></li>
+                <li><a href="jobs.html">Jobs</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="skills.html">Skills & Experience</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h2>Education</h2>
+        <p>I will soon hold a bachelor's degree in Computer Science from Texas A&M. During my studies, I gained a strong foundation in software engineering and problem solving that have shaped my professional journey.</p>
+
+        <h2>Hobbies and Interests</h2>
+        <p>Outside of work, I enjoy a variety of activities that help me unwind and stay inspired. I love biking and playing video games.</p>
+
+
+        <h2>Fun Fact</h2>
+        <p>A fun fact about me is that I like to go ghost hunting. It adds a unique aspect to who I am and influences my perspective on life.</p>
+    </main>
+    <footer>
+        <p>&copy; 2024 Marissa</p>
+    </footer>
+
+    <script>
+        // GSAP Animation
+        const fadeInDuration = 0.5; // Duration of fade-in animation
+        const fadeOutDuration = 0.5; // Duration of fade-out animation
+        
+        window.onload = () => {
+            gsap.from("main", { opacity: 0, duration: fadeInDuration }); // Fade in on page load
+        };
+
+        const links = document.querySelectorAll("#navbar a");
+        links.forEach(link => {
+            link.addEventListener("click", function(e) {
+                e.preventDefault(); // Prevent default link behavior
+                const target = this.getAttribute("href"); // Get the target page
+                gsap.to("main", { opacity: 0, duration: fadeOutDuration, onComplete: () => {
+                    window.location.href = target; // Redirect after fade out
+                }});
+            });
+        });
+    </script>
+</body>
+</html>

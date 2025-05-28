@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Jobs</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
+
+    
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-E6JSMC41SN"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-E6JSMC41SN');
+</script>
+
+</head>
+<body class="fade">
+    <header>
+        <h1>My Jobs</h1>
+        <nav id="navbar">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Me</a></li>
+                <li><a href="jobs.html">Jobs</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="skills.html">Skills & Experience</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h2>Job Titles and Responsibilities</h2>
+        <p>Here are some of the most important roles I've held:</p>
+        <ul>
+            <li>
+                <strong>Software Developer Intern at Apiture</strong>  
+                <p class="job-list">Worked in a variety of areas including full stack development, code deployment, and automation through creation of Slack bots.</p>
+            </li>
+            <li>
+                <strong>Computer Science Camp Instructor at the University of Texas</strong>  
+                <p class="job-list">Instructed high school students on how to code in C++ and program Arduino lights online using Tinkercad over Zoom.</p>
+            </li>
+            <li>
+                <strong>Coding Sensei/Instructor at Code Ninjas</strong>  
+                <p class="job-list">Taught kids how to code in Javascript and create video games. I also taught basic 3D modeling for 3D printing using Tinkercad.</p>
+            </li>
+        </ul>
+    </main>
+    
+    <footer>
+        <p>&copy; 2024 Marissa</p>
+    </footer>
+    <script>
+
+        document.body.classList.add("fade-in");
+
+
+        // GSAP Animation
+        const fadeInDuration = 0.5; // Duration of fade-in animation
+        const fadeOutDuration = 0.5; // Duration of fade-out animation
+        
+        window.onload = () => {
+            gsap.from("main", { opacity: 0, duration: fadeInDuration }); // Fade in on page load
+        };
+
+        const links = document.querySelectorAll("#navbar a");
+        links.forEach(link => {
+            link.addEventListener("click", function(e) {
+                e.preventDefault(); // Prevent default link behavior
+                const target = this.getAttribute("href"); // Get the target page
+                gsap.to("main", { opacity: 0, duration: fadeOutDuration, onComplete: () => {
+                    window.location.href = target; // Redirect after fade out
+                }});
+            });
+        });
+    </script>
+</body>
+</html>

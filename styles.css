@@ -1,0 +1,574 @@
+:root {
+    --primary-green: #2f614b;
+    --secondary-green: #A3B18A;
+    --background-light: #F5F5F5;
+    --background-dark: #1C1C1C;
+    --text-light: #333;
+    --text-dark: #F5F5F5;
+  }
+  
+  body {
+    margin: 0;
+    padding: 0;
+    background: var(--background-light);
+    color: var(--text-light);
+    transition: background 0.3s, color 0.3s;
+  }
+  
+  /* Header */
+  header {
+    width: 100%;
+    height: 5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background: var(--primary-green);
+    color: white;
+  }
+
+  .logo {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size:3rem;
+  }
+  
+  h1, h2, h3 {
+    font-weight: 600;
+    color: white;
+    margin-bottom: 0.5rem;
+  }
+  
+  h1 {
+    font-size: 2.2rem;
+    padding-bottom: 0.5rem;
+  }
+  
+  h2 {
+    font-size: 1.6rem;
+    margin-top: 2rem;
+  }
+
+  .green-text {
+    color: #408667;
+  }
+  
+  section {
+    /* padding: 2.5rem 0; */
+    border-bottom: 1px solid #ddd;
+  }
+  
+  /* Navigation */
+
+  nav {
+    padding-right: 3.5rem;
+  }
+
+  nav ul {
+    display: flex;
+    list-style: none;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 1.5rem;
+    margin: 0;
+    padding: 0;
+  }
+  
+  nav ul li {
+    margin-right: 1rem;
+  }
+  
+  nav ul li:last-child {
+    margin-left: auto;
+    margin-right: 0;
+  }
+  
+  nav a {
+    text-decoration: none;
+    color: white;
+    font-weight: 500;
+    padding: 0.3rem 0.6rem;
+    font-size: 1.5rem;
+    border-radius: 4px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  nav a:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+    color: #ffffff;
+  }
+  
+  #theme-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.5rem;
+    padding: 0.25rem;
+    line-height: 1;
+  }
+  
+  .refined-hero {
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+  }
+  
+  
+  #scene {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    z-index: 1;
+  }
+  
+  /* keep your existing .layer, .profile-pic, and positioning styles */
+  
+  
+  .layer {
+    position: absolute;
+    text-align: center;
+    color: white;
+    /* font-family: 'Poppins', sans-serif; */
+    pointer-events: none;
+  }
+
+  .layer-photo {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .layer-title {
+    top: 10%;
+    right: 10%;
+    font-size: 1.2rem;
+  }
+
+  .layer-edu {
+    bottom: 10%;
+    left: 90%;
+    font-size: 1rem;
+  }
+  
+  /* .layer-interests {
+    bottom: 10%;
+    right: 10%;
+    font-size: 1rem;
+  } */
+  
+  
+  .center-photo {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  
+  .profile-pic {
+    width: 250px;
+    border-radius: 12px;
+    box-shadow: 0px 10px 20px rgba(0,0,0,0.3);
+  }
+  
+  .floating-name {
+    top: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 2.2rem;
+    font-weight: bold;
+    color:#ffffff !important
+  }
+  
+  .floating-title {
+    top: 30%;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 1.3rem;
+  }
+  
+  .floating-edu {
+    bottom: 20%;
+    left: 20%;
+    font-size: 1rem;
+  }
+  
+  .floating-interests {
+    bottom: 20%;
+    right: 20%;
+    font-size: 1rem;
+  }
+  
+  
+  
+  
+.hero-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: url('img/misty-forest.jpg') center center / cover no-repeat;
+    filter: brightness(0.6);
+    z-index: 0;
+}
+  
+  
+  
+  @keyframes fogMove {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+  
+  
+  .home-container {
+    z-index: 3;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 3rem;
+    max-width: 1100px;
+    text-align: left;
+  }
+  
+  .profile-pic {
+    width: 350px;
+    height: auto;
+    border-radius: 10px;
+    object-fit: cover;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s;
+  }
+  
+  .profile-pic:hover {
+    transform: scale(1.05);
+  }
+  
+  .home-text h1 {
+    font-size: 2.5rem;
+    color: #f4f4f4;
+  }
+  
+  .description {
+    font-size: 1.2rem;
+    margin-top: 1rem;
+  }
+  
+  /* Education */
+  #education {
+    text-align: center;
+    padding: 3rem 2rem;
+    background: var(--background-light);
+  }
+
+  .education-container {
+    max-width: 900px;
+    margin: auto;
+    text-align: center;
+    padding: 3rem 1rem;
+  }
+  
+  .section-heading {
+    color: var(--primary-green);
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+  
+  .university {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    color: var(--text-light);
+  }
+  
+  .coursework h3 {
+    color: var(--primary-green);
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+  }
+  
+  .education-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    max-width: 1100px;
+    margin: auto;
+    align-items: flex-start;
+    padding: 3rem 1rem;
+  }
+  
+  .education-left {
+    flex: 1;
+    min-width: 300px;
+  }
+  
+  .education-right {
+    flex: 1;
+    min-width: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .education-right img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-left: 15rem;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  }
+  
+  .course-list {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    /* gap: 2rem; */
+    margin-top: 1rem;
+    min-width: 700px;
+  }
+  
+  .course-list ul {
+    list-style: disc inside;
+    margin: 0;
+    padding: 0;
+    color: var(--text-light);
+    font-size: 1.25rem;
+    line-height: 1.6;
+    text-align: left;
+    list-style-type: disc;
+    margin-left: 20px;
+  }
+  
+  
+  .icons {
+    font-size: 2rem;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    color: var(--primary-green);
+  }
+  
+  
+  .university {
+    font-size: 1.3rem;
+    font-weight: 500;
+    color: var(--text-light);
+  }
+  
+  .icons {
+    font-size: 2rem;
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    color: var(--primary-green);
+  }
+  
+  /* Skills */
+  #skills {
+    background: linear-gradient(180deg, #265F4D, #A3B18A);
+    color: white;
+    padding: 4rem 2rem;
+    text-align: center;
+  }
+  
+  .skills-heading {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    color: white;
+  }
+  
+  .skills-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+    padding: 1rem;
+    max-width: 1000px;
+    margin: auto;
+    flex-wrap: nowrap;
+  }
+  
+  .skill-circle {
+  width: 120px;
+  height: 120px;
+  background: white;
+  color: #333;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  font-weight: 500;
+  padding: 0.75rem;
+  text-align: center;
+}
+
+.skill-circle:hover {
+  transform: scale(1.1);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  background: #f4f4f4;
+}
+
+.skill-icon {
+  width: 32px;
+  height: 32px;
+  margin-bottom: 0.5rem;
+}
+
+  
+  /* Call to Action */
+  .cta {
+    background: #f8f9fa; /* Light grey */
+    text-align: center;
+    padding: 5rem 2rem;
+    color: #333; /* Dark text for readability */
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+  }
+  
+  .cta-content {
+    max-width: 700px;
+    margin: 0 auto;
+  }
+  
+  .cta h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #2c3e50;
+    margin-bottom: 1rem;
+  }
+  
+  .cta p {
+    font-size: 1.1rem;
+    font-weight: 400;
+    color: #555;
+    margin-bottom: 2rem;
+  }
+  
+  .btn-cta {
+    background-color: #2f5f3c;
+    color: white;
+    padding: 0.75rem 2rem;
+    text-decoration: none;
+    font-weight: 600;
+    border-radius: 6px;
+    font-size: 1rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: background 0.3s ease, transform 0.2s ease;
+  }
+  
+  .btn-cta:hover {
+    background-color: #264e31;
+    transform: translateY(-2px);
+  }
+  
+  
+  
+  /* Footer */
+  footer {
+    text-align: center;
+    padding: 1rem;
+    background: var(--primary-green);
+    color: white;
+    font-size: 0.9rem;
+  }
+  
+  /* Responsive */
+  @media (max-width: 768px) {
+    .home-container {
+      flex-direction: column;
+      text-align: center;
+    }
+  
+    .profile-pic {
+      width: 80%;
+    }
+  }
+
+
+
+
+  body {
+    margin: 0;
+    /* height: 100vh; */
+    /* background-color: #bd1060; */
+    /* overflow: hidden; */
+  }
+  .parallax-wrap {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: url('img/misty-forest.jpg') center center / cover no-repeat;
+  }
+  .parallax-wrap h2 {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+  }
+  .parallax-wrap span {
+    position: absolute;
+  }
+  .parallax-wrap span:nth-child(1) {
+    top: 70%;
+    left: 60%;
+    height: 20px;
+    width: 200px;
+    /* background: blue; */
+    z-index: 3;
+  }
+  .parallax-wrap span:nth-child(2) {
+    top: 60%;
+    left: 80%;
+    height: 20px;
+    width: 20px;
+    z-index: 3;
+  }
+  .parallax-wrap span:nth-child(3) {
+    top: 30%;
+    left: 80%;
+    height: 20px;
+    width: 200px;
+    color: #6D8E4E;
+    z-index: 3;
+  }
+  .parallax-wrap span:nth-child(4) {
+    top: 60%;
+    left: 10%;
+    height: 20px;
+    width: 400px;
+    z-index: 3;
+  }
+  .parallax-wrap span:nth-child(5) {
+    top: 20%;
+    left: 10%;
+    height: 20px;
+    width: 20px;
+    border-radius: 100%;
+    z-index: 3;
+  }
+
+.name-title {
+    color: #408667 !important;
+    font-size: 3.5rem;
+    padding-bottom: 0.5rem;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: 600;
+}
+
+.work-title {
+    color: #e7e7e7 !important;
+    font-size: 3.5rem;
+    padding-bottom: 0.5rem;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: 600;
+}
+  
+.atm-pic {
+    width: 250px;
+}
+
+  
