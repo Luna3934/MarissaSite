@@ -494,10 +494,22 @@
     z-index: 1;
     text-align: center;
     padding: 1rem;
-    max-width: 90vw;
+    /* max-width: 90vw; */
     word-wrap: break-word;
     overflow-wrap: break-word;
     margin-right: clamp(0rem, 8vw, 5rem);
+  }
+
+  @media (max-width: 768px) {
+    .hero-text {
+      margin-right: 0; /* remove offset */
+      padding: 0 1rem; /* optional padding */
+    }
+  
+    .hero-name {
+      font-size: clamp(1.5rem, 8vw, 3rem);
+      text-align: center;
+    }
   }
 
   .hero-name {
