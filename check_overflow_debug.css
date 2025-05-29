@@ -1,0 +1,5 @@
+
+/* Debugging overflow issue: Add red outlines to all elements */
+* {
+  outline: 1px solid red;
+}
