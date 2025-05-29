@@ -240,7 +240,7 @@
   
   /* Skills */
   #skills {
-    background: linear-gradient(180deg, #265F4D, #A3B18A);
+    background: linear-gradient(180deg, #265F4D, #86beac);
     color: white;
     padding: 4rem 2rem;
     text-align: center;
@@ -319,7 +319,7 @@
   }
   
   .btn-cta {
-    background-color: #2f5f3c;
+    background-color: #2f614b;
     color: white;
     padding: 0.75rem 2rem;
     text-decoration: none;
