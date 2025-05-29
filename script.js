@@ -6,16 +6,6 @@ gsap.from(".profile-pic", { duration: 1, opacity: 0, x: -50 });
 gsap.from(".home-text h1", { duration: 1, opacity: 0, x: 50 });
 gsap.from(".home-text p", { duration: 1, opacity: 0, x: 50, stagger: 0.3 });
 
-// gsap.to(".skill-circle", {
-//     opacity: 1,
-//     y: 0,
-//     duration: 1,
-//     stagger: 0.2,
-//     scrollTrigger: {
-//         trigger: ".skills-container",
-//         start: "top 80%",
-//     }
-// });
 
 // Dark Mode Toggle
 const themeToggle = document.getElementById("theme-toggle");
@@ -49,19 +39,6 @@ function parallax(event) {
 }
 
   
-  
-  
-//   document.addEventListener("DOMContentLoaded", function () {
-//   AOS.init();
-//   new Typed('#typed-text', {
-//     strings: ["Software Developer.", "Problem Solver.", "Innovator."],
-//     typeSpeed: 60,
-//     backSpeed: 30,
-//     loop: true
-//   });
-
-//   new Rellax('.layer');
-// });
 
 
 window.addEventListener("DOMContentLoaded", () => {
@@ -105,27 +82,6 @@ profile.addEventListener("mouseleave", () => {
   gsap.to(".atm-pic", { x: -150, y: -100 });
 });
 
-
-// const grid = document.getElementById("grid");
-
-//   // Create 8x8 = 64 squares
-//   for (let i = 0; i < 64; i++) {
-//     const cell = document.createElement("div");
-//     grid.appendChild(cell);
-//   }
-
-//   const cells = grid.querySelectorAll("div");
-
-//   gsap.to(cells, {
-//     opacity: 1,
-//     stagger: {
-//       each: 0.03,
-//       from: "start",
-//       grid: [8, 8]
-//     },
-//     ease: "power2.out",
-//     duration: 0.6
-//   });
 
 function updateHeroTextOffset() {
   const vw = window.innerWidth;
@@ -201,4 +157,12 @@ tl.to(".constellation circle", {
 .add(updateHeroTextOffset);
 
 
-
+gsap.to(".sunrise-overlay", {
+  opacity: 1,
+  scrollTrigger: {
+    trigger: ".sky-fade-transition",
+    start: "top bottom",
+    end: "top center",
+    scrub: true
+  }
+});
