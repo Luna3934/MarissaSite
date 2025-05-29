@@ -35,12 +35,12 @@ document.addEventListener("DOMContentLoaded", () => {
   gsap.set(".hero-text", { opacity: 0, x: 50 }); // Ensure starts hidden
   tl.to(".hero-text", {
     opacity: 1,
-    x: 350,
+    x: 0,
     duration: 1.2,
     ease: "power2.out"
-  }, "-=0.8"); // Overlap timing slightly
+  }, "-=0.8") // Overlap timing slightly
 
-  updateHeroTextOffset(); // Initial positioning
+  .add(updateHeroTextOffset); // Initial positioning
 });
 
 // ------------------------------
