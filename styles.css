@@ -7,9 +7,6 @@
     --text-dark: #F5F5F5;
   }
 
-  html {
-    scroll-behavior: smooth;
-  }
   
   body {
     font-family: 'Inter', sans-serif;
@@ -19,6 +16,7 @@
     background: var(--background-light);
     color: var(--text-light);
     transition: background 0.3s, color 0.3s;
+    scroll-behavior: smooth;
   }
   
   /* Header */
