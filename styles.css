@@ -362,7 +362,7 @@
 
   .parallax-wrap {
     position: relative;
-    width: 100%;
+    /* width: 100%; */
     height: 100vh;
     overflow: hidden;
     display: flex;
@@ -462,7 +462,6 @@
     padding: 2rem;
     flex-wrap: wrap; /* This allows content to stack vertically */
     text-align: center;
-    width:100%;
   }
   
   .constellation {
