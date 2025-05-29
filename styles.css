@@ -7,6 +7,9 @@
     --text-dark: #F5F5F5;
   }
 
+  html {
+    max-width: 100vw;
+  }
   
   body {
     font-family: 'Inter', sans-serif;
