@@ -106,3 +106,67 @@ profile.addEventListener("mouseleave", () => {
 });
 
 
+// const grid = document.getElementById("grid");
+
+//   // Create 8x8 = 64 squares
+//   for (let i = 0; i < 64; i++) {
+//     const cell = document.createElement("div");
+//     grid.appendChild(cell);
+//   }
+
+//   const cells = grid.querySelectorAll("div");
+
+//   gsap.to(cells, {
+//     opacity: 1,
+//     stagger: {
+//       each: 0.03,
+//       from: "start",
+//       grid: [8, 8]
+//     },
+//     ease: "power2.out",
+//     duration: 0.6
+//   });
+
+// Step 1: Set up stroke dash offset for lines
+document.querySelectorAll(".constellation line").forEach(line => {
+  const length = line.getTotalLength();
+  line.style.strokeDasharray = length;
+  line.style.strokeDashoffset = length;
+});
+
+// Step 2: Make sure hero text starts hidden (you can also do this in CSS)
+gsap.set(".hero-text", { opacity: 0, x: 50 });
+
+// Step 3: Create timeline for animation sequence
+const tl = gsap.timeline();
+
+// 1. Animate circles (stars)
+tl.to(".constellation circle", {
+  opacity: 1,
+  duration: 0.5,
+  stagger: 0.2,
+  ease: "power2.out"
+})
+
+// 2. Animate constellation lines
+.to(".constellation line", {
+  strokeDashoffset: 0,
+  duration: 1,
+  stagger: 0.3,
+  ease: "power2.inOut"
+})
+
+// 3. Move constellation to the left
+.to(".constellation", {
+  x: "-20vw", // adjust this depending on your layout
+  duration: 1.2,
+  ease: "power2.inOut"
+})
+
+// 4. Fade in and slide in hero text
+.to(".hero-text", {
+  opacity: 1,
+  x: 300,
+  duration: 1.2,
+  ease: "power2.out"
+}, "-=0.8"); // slightly overlap with the constellation slide
