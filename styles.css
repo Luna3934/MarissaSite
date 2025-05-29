@@ -256,8 +256,8 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 2rem;
-    padding: 1rem;
+    /* gap: 2rem;
+    padding: 1rem; */
     margin: auto;
     flex-wrap: wrap;
   }
@@ -572,7 +572,7 @@
         #9b948f 75%,
         #b8b1ad 80%,
         #cfc8c1 85%,        /* soft blend */
-        #fdf8f4 100%        /* EXACT match with next section */
+        #fffaf6 100%        /* EXACT match with next section */
     );
     z-index: 2;
     mix-blend-mode: lighten; /* optional: helps soften transition */
