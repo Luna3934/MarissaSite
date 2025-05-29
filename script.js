@@ -129,7 +129,7 @@ profile.addEventListener("mouseleave", () => {
 
 function updateHeroTextOffset() {
   const vw = window.innerWidth;
-  const x = vw > 1100 ? 300 : vw > 650 ? 200 : 120;
+  const x = vw > 1500 ? 400 : 1100 ? 300 : vw > 650 ? 200 : 120;
 
   gsap.to(".hero-text", {
     x: x,
