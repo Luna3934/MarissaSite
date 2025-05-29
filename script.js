@@ -127,6 +127,22 @@ profile.addEventListener("mouseleave", () => {
 //     duration: 0.6
 //   });
 
+function updateHeroTextOffset() {
+  const vw = window.innerWidth;
+  const x = vw > 1100 ? 300 : vw > 650 ? 200 : 120;
+
+  gsap.to(".hero-text", {
+    x: x,
+    duration: 0.5,
+    ease: "power2.out"
+  });
+}
+
+window.addEventListener("resize", updateHeroTextOffset);
+updateHeroTextOffset();
+
+
+
 // Step 1: Set up stroke dash offset for lines
 document.querySelectorAll(".constellation line").forEach(line => {
   const length = line.getTotalLength();
@@ -158,15 +174,21 @@ tl.to(".constellation circle", {
 
 // 3. Move constellation to the left
 .to(".constellation", {
-  x: "-20vw", // adjust this depending on your layout
+  x: "-10vw", // adjust this depending on your layout
   duration: 1.2,
   ease: "power2.inOut"
 })
 
+.add(updateHeroTextOffset)
 // 4. Fade in and slide in hero text
 .to(".hero-text", {
   opacity: 1,
-  x: 300,
+  x: 350,
   duration: 1.2,
   ease: "power2.out"
-}, "-=0.8"); // slightly overlap with the constellation slide
+}, "-=0.8") // slightly overlap with the constellation slide
+
+.add(updateHeroTextOffset);
+
+
+

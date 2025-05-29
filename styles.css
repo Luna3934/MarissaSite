@@ -269,22 +269,31 @@
     padding: 3rem 1rem;
   }
   
+  #education .section-heading {
+    font-size: 1.3em !important;
+  }
+
   .section-heading {
     color: var(--primary-green);
-    font-size: 2rem;
     margin-bottom: 1rem;
+    font-size: 1.3em !important;
   }
   
   .university {
-    font-size: 1.2rem;
+    font-size: 1em;
     margin-bottom: 2rem;
     color: var(--text-light);
   }
   
   .coursework h3 {
     color: var(--primary-green);
-    font-size: 1.4rem;
     margin-bottom: 1rem;
+    font-size: 1.3em !important;
+  }
+
+  .course-list li {
+    font-size: 1em;
+    line-height: 1.5;
   }
   
   .education-wrapper {
@@ -295,11 +304,18 @@
     margin: auto;
     align-items: flex-start;
     padding: 3rem 1rem;
+    font-size: clamp(1rem, 2vw, 1.5rem);
+  }
+
+  .education-wrapper * {
+    /* outline: 1px solid red; */
+    font-size: inherit !important;
   }
   
   .education-left {
     flex: 1;
     min-width: 300px;
+    padding-right: 5rem;
   }
   
   .education-right {
@@ -314,7 +330,7 @@
     max-width: 100%;
     height: auto;
     border-radius: 10px;
-    margin-left: 15rem;
+    /* margin-left: 7rem; */
     box-shadow: 0 8px 20px rgba(0,0,0,0.15);
   }
   
@@ -322,7 +338,6 @@
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    /* gap: 2rem; */
     margin-top: 1rem;
     min-width: 700px;
   }
@@ -353,6 +368,7 @@
     font-size: 1.3rem;
     font-weight: 500;
     color: var(--text-light);
+    line-height: 1.6;
   }
   
   .icons {
@@ -623,6 +639,10 @@
     justify-content: center;
     align-items: center;
     overflow: hidden;
+    gap: 3rem;
+  padding: 2rem;
+  flex-wrap: wrap; /* This allows content to stack vertically */
+  text-align: center;
   }
   
   .constellation {
@@ -651,13 +671,29 @@
   }
   
   .hero-text {
-    position: relative;
     z-index: 1;
     text-align: center;
+    padding: 1rem;
+    max-width: 90vw;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    margin-right: clamp(0rem, 8vw, 5rem);
   }
 
   .hero-name {
-    font-size: 3rem;
+    font-size: clamp(1.5rem, 5vw, 5rem);
+    line-height: 1.2;
+    color: #f0f5f2; /* light text */
+    text-shadow:
+    -1.5px -1.5px 0 #000000,
+    1.5px -1.5px 0 #000000,
+    -1.5px  1.5px 0 #000000,
+    1.5px  1.5px 0 #000000;
+  }
+  
+  .hero-text p {
+    font-size: clamp(1rem, 1vw, 1.5rem);
+    line-height: 1.5;
   }
   
   .hero-constellation {
