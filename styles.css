@@ -119,12 +119,12 @@
   
   
   .profile-pic {
-    width: 350px;
+    width: clamp(150px, 30vw, 300px);
     height: auto;
-    border-radius: 10px;
+    border-radius: 12px;
     object-fit: cover;
-    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
-    transition: transform 0.3s;
+    box-shadow: 0px 10px 20px rgba(0,0,0,0.3);
+    flex-wrap: nowrap;
   }
   
   .profile-pic:hover {
@@ -357,7 +357,7 @@
     }
   
     .profile-pic {
-      width: 80%;
+      /* width: 80%; */
     }
   }
 
@@ -424,6 +424,7 @@
 .name-title {
     color: #408667 !important;
     font-size: 3.5rem;
+    font-size: clamp(1.5rem, 5vw, 3.5rem);
     padding-bottom: 0.5rem;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-weight: 600;
@@ -432,13 +433,15 @@
 .work-title {
     color: #e7e7e7 !important;
     font-size: 3.5rem;
+    font-size: clamp(1.2rem, 4vw, 3rem);
     padding-bottom: 0.5rem;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-weight: 600;
 }
   
 .atm-pic {
-    width: 250px;
+    width: clamp(100px, 20vw, 250px);
+    height: auto;
 }
 
   .cursor {
