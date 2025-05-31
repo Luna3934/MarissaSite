@@ -15,11 +15,11 @@
     --grad6: #a59e9a 50%;
     --grad7: #cbc6c2 50%;       
     --grad8: #a1a1a1 50%;  
-    --skills-gradient-top: #2c2c2c;
+    --skills-gradient-top: #011406;
     --skills-gradient-bot: #2f614b;
-    --cta-background: #1b1b1b;
+    --cta-background: #131313;
     --cta-text-color: #d8cccc;
-    --cta-header-text-color:#9ac2eb;
+    --cta-header-text-color:#6dadec;
     --cta-par-text-color: #e0e0e0;
   }
 
@@ -156,7 +156,7 @@
   
   
   .profile-pic {
-    width: clamp(150px, 30vw, 300px);
+    width: clamp(150px, 30vw, 450px);
     height: auto;
     border-radius: 12px;
     object-fit: cover;
@@ -178,6 +178,7 @@
     text-align: center;
     padding: 3rem 2rem;
     background: var(--background-light);
+    
   }
 
   #education .section-heading {
@@ -194,12 +195,13 @@
   .coursework h3 {
     color: var(--primary-text);
     margin-bottom: 1rem;
-    font-size: 1.3em !important;
+    font-size: 1.5em !important;
   }
 
   .course-list li {
     font-size: 1em;
     line-height: 1.5;
+    /* color: var(--text-dark) !important; */
   }
   
   .education-wrapper {
@@ -602,7 +604,7 @@
     background: var(--forest-background) top center / cover no-repeat;
     z-index: 1;
     opacity: 2;
-    transform: scaleX(1.35) scaleY(-1);
+    transform: scaleX(1.45) scaleY(-1);
     mask-image: linear-gradient(to bottom, black 0%, transparent 100%);
     /* transform: scaleY(-1); */
     /* transform: scaleZ(-1); */
