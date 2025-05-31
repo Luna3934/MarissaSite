@@ -1,14 +1,50 @@
 :root {
     --primary-green: #2f614b;
     --secondary-green: #A3B18A;
-    --background-light: #F5F5F5;
+    --background-light: #2f614b;
     --background-dark: #1C1C1C;
-    --text-light: #333;
-    --text-dark: #F5F5F5;
+    --text-light: #ededed;
+    --text-dark: #000000;
+    --primary-text: #F5F5F5;
+    --forest-background: url('img/darker-misty-forest.jpg');
+    --grad1: #000000 50% 100%;         
+    --grad2: #202024 50% 50%;     
+    --grad3: #373737aa 60% 25%;        
+    --grad4: #515253 80% 20%;        
+    --grad5: #7a7773 50%;
+    --grad6: #a59e9a 50%;
+    --grad7: #cbc6c2 50%;       
+    --grad8: #a1a1a1 50%;  
+    --skills-gradient-top: #2c2c2c;
+    --skills-gradient-bot: #2f614b;
+    --cta-background: #1b1b1b;
+    --cta-text-color: #d8cccc;
+    --cta-header-text-color:#9ac2eb;
+    --cta-par-text-color: #e0e0e0;
   }
 
-  html {
+  .light-side {
+    --primary-text: #2f614b;
+    --background-light: #F5F5F5;
+    --text-light: #333;
+    --text-dark: #000000;
+    --forest-background: url('img/misty-forest.jpg');
+    --grad1: #070708 0%;         
+    --grad2: rgb(34, 34, 39) 25%;     
+    --grad3: #36363d 40%;        
+    --grad4: #646566 60%;        
+    --grad5: #8d8b8b 70%;
+    --grad6: #c2bbb7 80%;
+    --grad7: #e9e4e0 90%;       
+    --grad8: #fffaf5 100%;  
+    --skills-gradient-top: #265F4D;
+    --skills-gradient-bot: #86beac;
+    --cta-background: #f8f9fa;
+    --cta-text-color: #333;
+    --cta-header-text-color:#2c3e50;
+    --cta-par-text-color: #555;
   }
+  
   
   body { 
     font-family: 'Inter', sans-serif;
@@ -19,6 +55,7 @@
     color: var(--text-light);
     transition: background 0.3s, color 0.3s;
     scroll-behavior: smooth;
+    max-width: 100%;
   }
   
   /* Header */
@@ -144,7 +181,7 @@
   }
 
   #education .section-heading {
-    color: var(--primary-green);
+    color: var(--primary-text);
     margin-bottom: 1rem;
     font-size: 1.5em !important;
   }
@@ -152,11 +189,10 @@
   .university {
     font-size: 1em;
     margin-bottom: 2rem;
-    color: var(--text-light);
   }
   
   .coursework h3 {
-    color: var(--primary-green);
+    color: var(--primary-text);
     margin-bottom: 1rem;
     font-size: 1.3em !important;
   }
@@ -240,7 +276,7 @@
   
   /* Skills */
   #skills {
-    background: linear-gradient(180deg, #265F4D, #86beac);
+    background: linear-gradient(180deg, var(--skills-gradient-top), var(--skills-gradient-bot));
     color: white;
     padding: 4rem 2rem;
     text-align: center;
@@ -294,10 +330,10 @@
   
   /* Call to Action */
   .cta {
-    background: #f8f9fa; /* Light grey */
+    background: var(--cta-background); /* Light grey */
     text-align: center;
     padding: 5rem 2rem;
-    color: #333; /* Dark text for readability */
+    color: var(--cta-text-color); /* Dark text for readability */
   }
   
   .cta-content {
@@ -307,14 +343,14 @@
   .cta h2 {
     font-size: 2rem;
     font-weight: 700;
-    color: #2c3e50;
+    color: var(--cta-header-text-color);
     margin-bottom: 1rem;
   }
   
   .cta p {
     font-size: 1.1rem;
     font-weight: 400;
-    color: #555;
+    color: var(--cta-par-text-color);
     margin-bottom: 2rem;
   }
   
@@ -356,7 +392,6 @@
 
 
 
-
   .parallax-wrap {
     position: relative;
     height: 100vh;
@@ -364,7 +399,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background: url('img/misty-forest.jpg') center center / cover no-repeat;
+    background: var(--forest-background) center center / cover no-repeat;
   }
   .parallax-wrap h2 {
     position: relative;
@@ -556,6 +591,21 @@
     background: url('img/starry-sky.jpg') top center / cover no-repeat; /* your starry image */
     z-index: 1;
     opacity: 1;
+    transform: scaleX(1.35);
+  }
+
+  .forest-bg {
+    position: absolute;
+    top:60%;
+    height: 40%;
+    width: 100%;
+    background: var(--forest-background) top center / cover no-repeat;
+    z-index: 1;
+    opacity: 2;
+    transform: scaleX(1.35) scaleY(-1);
+    mask-image: linear-gradient(to bottom, black 0%, transparent 100%);
+    /* transform: scaleY(-1); */
+    /* transform: scaleZ(-1); */
   }
   
   .sunrise-overlay {
@@ -566,16 +616,22 @@
     width: 100%;
     background: linear-gradient(
         to bottom,
-        #000000 0%,         /* MATCH top section */
-        rgb(14, 14, 19) 25%,        /* hold dark blue longer */
-        #202024 40%,        /* subtle mid-blue */
-        #515253 60%,        /* shift toward dawn gray */
-        #9b948f 75%,
-        #b8b1ad 80%,
-        #cfc8c1 85%,        /* soft blend */
-        #fffaf6 100%        /* EXACT match with next section */
+        var(--grad1),
+        var(--grad2),
+        var(--grad3),
+        var(--grad4),
+        var(--grad5),
+        var(--grad6),
+        var(--grad7),
+        var(--grad8)      
     );
-    z-index: 2;
-    mix-blend-mode: lighten; /* optional: helps soften transition */
+    z-index: 3;
+    mix-blend-mode:lighten; /* optional: helps soften transition */
   }
   
+  .section-divider {
+    width: 100%;
+    height: 40px;
+    background-color: black;
+    opacity: 0.9;
+  }

@@ -111,12 +111,15 @@ if (profile) {
 // 6. Dark Mode Toggle
 // ------------------------------
 const themeToggle = document.getElementById("theme-toggle");
+const body = document.body;
+
 if (themeToggle) {
   themeToggle.addEventListener("click", () => {
-    document.body.classList.toggle("dark-mode");
-    themeToggle.textContent = document.body.classList.contains("dark-mode") ? "☀️" : "🌙";
+    const isLight = body.classList.toggle("light-side");
+    themeToggle.textContent = isLight ? "☀️" : "🌙";
   });
 }
+
 
 // ------------------------------
 // 7. Sunrise Overlay Scroll Fade
