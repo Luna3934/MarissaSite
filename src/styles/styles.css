@@ -6,7 +6,7 @@
     --text-light: #ededed;
     --text-dark: #000000;
     --primary-text: #F5F5F5;
-    --forest-background: url('../img/darker-misty-forest.jpg');
+    --forest-background: url('/img/darker-misty-forest.jpg');
     --grad1: #000000 50% 100%;         
     --grad2: #202024 50% 50%;     
     --grad3: #373737aa 60% 25%;        
@@ -28,7 +28,7 @@
     --background-light: #F5F5F5;
     --text-light: #333;
     --text-dark: #000000;
-    --forest-background: url('../img/misty-forest.jpg');
+    --forest-background: url('/img/misty-forest.jpg');
     --grad1: #070708 0%;         
     --grad2: rgb(34, 34, 39) 25%;     
     --grad3: #36363d 40%;        
@@ -504,7 +504,7 @@
     overflow-x: hidden !important;
     flex-wrap: wrap; /* This allows content to stack vertically */
     text-align: center;
-    background: url('../img/starry-sky.jpg') center center / cover no-repeat;
+    background: url('/img/starry-sky.jpg') center center / cover no-repeat;
   }
   
   .constellation {
@@ -591,7 +591,7 @@
     left: 0;
     height: 100%;
     width: 100%;
-    background: url('../img/starry-sky.jpg') top center / cover no-repeat; /* your starry image */
+    background: url('/img/starry-sky.jpg') top center / cover no-repeat; /* your starry image */
     z-index: 1;
     opacity: 1;
     transform: scaleX(1.35);
