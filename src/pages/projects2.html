@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Projects - Fall Inspired</title>
+
+  
+  <link rel="stylesheet" href="/src/styles/styles3.css">
+  
+</head>
+
+<body>
+  <div class="model"></div>
+
+  <nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="#resume">Resume</a></li>
+      <li><a href="#jobs">Jobs</a></li>
+      <li><a href="projects.html">Projects</a></li>
+      <li><button id="theme-toggle">🌙</button></li>
+    </ul>
+  </nav>
+
+  <!-- Floating Leaf Canvas Area -->
+  
+  <section class="fall-hero">
+    <div class="fall-overlay">
+      <h1 class="hero-name">My Projects</h1>
+      <p class="hero-text">Inspired by Autumn's motion and mood</p>
+    </div>
+  </section>
+
+  
+  <section class="project-section" id="react-projects-root">
+    <!-- React will inject content here -->
+  </section>
+  
+  
+  
+  
+
+  <footer>
+    <p>&copy; 2025 Marissa Mallinger. All Rights Reserved.</p>
+  </footer>
+
+  <script src="https://unpkg.com/framer-motion@5.5.5/dist/framer-motion.umd.js"></script>
+
+  <!-- React + Babel -->
+<script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+<script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+
+<!-- ✅ Local fallback -->
+<script src="/src/utils/react-transition-group.js"></script>
+
+<script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+<!-- ✅ Other libraries -->
+<script src="https://unpkg.com/lenis@1.1.16/dist/lenis.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+<!-- ✅ React JSX file (must come after Babel) -->
+<script type="text/babel" src="/src/utils/react-project.js"></script>
+
+<!-- ✅ Your 3D + theme toggle script -->
+<script src="/src/utils/script3.js"></script>
+
+
+</body>
+</html>
