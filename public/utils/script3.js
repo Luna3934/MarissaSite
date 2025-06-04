@@ -75,7 +75,7 @@ scene.add(hemiLight);
 
 let model;
 const loader = new THREE.GLTFLoader();
-loader.load("/src/models/red leaf.glb", function (gltf) {
+loader.load("./models/red leaf.glb", function (gltf) {
     model = gltf.scene;
     model.traverse((node) => {
         if(node.isMesh) {

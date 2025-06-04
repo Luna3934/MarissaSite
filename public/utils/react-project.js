@@ -38,7 +38,6 @@ function ProjectGallery() {
   
     const [tagFilter, setTagFilter] = useState("All");
 
-    console.log("Working");
     const filteredProjects = tagFilter === "All"
       ? projectData
       : projectData.filter(p => p.tags.includes(tagFilter));
