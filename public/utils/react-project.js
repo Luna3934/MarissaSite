@@ -9,27 +9,33 @@ const { useState, useRef } = React;
 const projectData = [
   {
     id: 1,
-    title: "Colorization Model",
-    description: "Deep learning model to colorize black and white photos.",
+    title: "Senior Project:|Augmented Reality Experience",
+    description: "Deep learning model to colorize black and white photos",
     date: "2025-04-15",
-    tags: ["AI", "Python"],
-    className: "one"
+    tags: ["AR", "Mobile Development", "Flutter"],
+    className: "one",
+    image: "./img/hebuddy.gif", // Replace with your actual image path
+    link: "projects/ar-experience.html"
   },
   {
     id: 2,
-    title: "Weather Tracker",
-    description: "Live weather dashboard with animated graphics.",
+    title: "Apiture Internship Project",
+    description: "Debugging Page",
     date: "2025-03-01",
-    tags: ["React", "API"],
-    className: "two"
+    tags: ["SQL", "Perl", "HTML"],
+    className: "two",
+    image: "./img/Apiture-logo.jpg", // Replace with your actual image path
+    link: "projects/internship.html"
   },
   {
     id: 3,
-    title: "Resume Site",
-    description: "Personal site showcasing resume and projects.",
+    title: "Boba Shop Website/POS System",
+    description: "Personal site showcasing resume and projects",
     date: "2025-01-10",
-    tags: ["HTML", "CSS"],
-    className: "three"
+    tags: ["HTML", "CSS", "JavaScript","React", "SQL"],
+    className: "three",
+    image: "images/resume_site.jpg", // Replace with your actual image path
+    link: "projects/resume-site.html"
   }
 ];
 
@@ -71,11 +77,23 @@ function ProjectGallery() {
 
           return (
             <div key={key} className={`project-wrapper ${direction}`}>
-              <h2>{project.title}</h2>
+              <img src={project.image} alt={project.title} className="project-image" />
+              <h2 className="project-title">
+                <a href={project.link} className="project-title-link">
+                  {project.title.split("|").map((line, i) => (
+                    <React.Fragment key={i}>
+                      {line}
+                      <br />
+                    </React.Fragment>
+                  ))}
+                </a>
+              </h2>
               <p>{project.description}</p>
             </div>
           );
         })}
+
+        
 
 
       </div>

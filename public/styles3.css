@@ -22,7 +22,7 @@
 
 * {
     margin: 0;
-    padding: 0;
+    /* padding: 0; */
     box-sizing: border-box;
     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     text-transform: uppercase;
@@ -169,9 +169,9 @@ body {
     color: #4b2e1d;
     border-radius: 12px;
     box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-    padding: 5rem;
+    padding: 2.5rem;
+    width: clamp(280px, 40vw, 500px);
     transition: all 0.3s ease;
-    width: clamp(300px, 50vw, 700px);
     margin: 5em;
     transition:
         transform 0.4s ease,
@@ -181,28 +181,25 @@ body {
   }
   
   /* Optional: add puzzle-like visual variation */
-  .project-wrapper.one {
+  /* .project-wrapper.one {
     transform: translateX(15%);
-    /* clip-path: polygon(0 0, 100% 0, 100% 85%, 75% 85%, 75% 100%, 25% 100%, 25% 85%, 0 85%); */
-  }
+    }
   
   .project-wrapper.two {
     align-self: flex-end;
-    /* clip-path: polygon(0 15%, 25% 15%, 25% 0%, 75% 0%, 75% 15%, 100% 15%, 100% 100%, 0 100%); */
-  }
+    }
   
   .project-wrapper.three {
     align-self: center;
-    /* clip-path: polygon(10% 0, 90% 0, 100% 100%, 0 100%); */
-  }
+    } */
   
 
   .project-wrapper.left {
-    transform: translateX(-35%);
+    transform: translateX(-65%);
   }
   
   .project-wrapper.right {
-    transform: translateX(35%);
+    transform: translateX(65%);
   }
   
   
@@ -246,3 +243,25 @@ body {
     color: var(--text-color);
   }
   
+
+  .project-title-link {
+    text-decoration: none;
+    color: var(--accent-color); /* Or a specific color like #3e2c20 */
+    transition: color 0.2s ease, text-shadow 0.2s ease;
+  }
+
+.project-title-link:hover {
+  color: var(--project-text); /* Your site’s accent color */
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+}
+
+/* In styles.css or similar */
+.project-image {
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+  object-fit: cover;
+  border-radius: 8px;
+  display: block;
+  margin-bottom: 1rem;
+}

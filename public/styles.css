@@ -7,8 +7,8 @@
     --text-dark: #000000;
     --primary-text: #F5F5F5;
     --forest-background: url('./img/darker-misty-forest.jpg');
-    --grad1: #000000 50% 100%;         
-    --grad2: #202024 50% 50%;     
+    --grad1: #00000000 50% 80%;         
+    --grad2: rgb(180, 180, 180) 100% 100%;     
     --grad3: #373737aa 60% 25%;        
     --grad4: #515253 80% 20%;        
     --grad5: #7a7773 50%;
@@ -21,6 +21,8 @@
     --cta-text-color: #d8cccc;
     --cta-header-text-color:#6dadec;
     --cta-par-text-color: #e0e0e0;
+    --parallax-grad: linear-gradient(to bottom, rgb(180, 180, 180), rgb(100, 100, 100, 0));
+    --grad-mode: normal;
   }
 
   .light-side {
@@ -43,6 +45,8 @@
     --cta-text-color: #333;
     --cta-header-text-color:#2c3e50;
     --cta-par-text-color: #555;
+    --parallax-grad: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0));;
+    --grad-mode: lighten;
   }
   
   
@@ -189,7 +193,7 @@
   }
   
   .university {
-    font-size: 1em;
+    font-size: .5em !important;
     margin-bottom: 2rem;
   }
   
@@ -212,7 +216,7 @@
     margin: auto;
     align-items: flex-start;
     padding: 3rem 1rem;
-    font-size: clamp(1rem, 2vw, 1.5rem);
+    font-size: clamp(1rem, 2vw, 1.3rem);
   }
 
   .education-wrapper * {
@@ -281,7 +285,7 @@
   #skills {
     background: linear-gradient(180deg, var(--skills-gradient-top), var(--skills-gradient-bot));
     color: white;
-    padding: 4rem 2rem;
+    padding: 6rem 2rem 7rem 2rem !important;
     text-align: center;
   }
   
@@ -404,6 +408,18 @@
     align-items: center;
     background: var(--forest-background) center center / cover no-repeat;
   }
+
+  .parallax-wrap::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 80px;
+    z-index: 5;
+    background: var(--parallax-grad);
+  }
+
   .parallax-wrap h2 {
     position: relative;
     z-index: 2;
@@ -629,7 +645,7 @@
         var(--grad8)      
     );
     z-index: 4;
-    mix-blend-mode:lighten; /* optional: helps soften transition */
+    mix-blend-mode:var(--grad-mode); /* optional: helps soften transition */
   }
   
   .section-divider {

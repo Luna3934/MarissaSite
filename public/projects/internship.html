@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AR HEB Project</title>
+  <style>
+    :root {
+        --bg-light: #fdf8f3; /* soft cream */
+        --accent: #b06e50;   /* fall accent */
+        --text-dark: #3e2c20;
+        --text-light: #ffffff;
+    }
+
+    body {
+        background-color: var(--bg-light) !important;
+        color: var(--text-dark);
+        font-family: 'Inter', sans-serif;
+    }
+
+
+    .hero-banner {
+      background-color: #fb6e12;
+      height: 18vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: white;
+      position: relative;
+    }
+
+    .hero-banner::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+    }
+
+    .hero-banner h1 {
+      z-index: 1;
+      font-size: 2.5rem;
+      text-shadow: 1px 1px 8px rgba(0, 0, 0, 0.5);
+    }
+
+    .project-content {
+      max-width: 85%;
+      margin: 3rem auto;
+      padding: 0 1.5rem;
+    }
+
+    .intro {
+      /* margin-top: 8rem; */
+      margin-bottom: 2rem;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .three-column-layout {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1.3fr;
+    gap: 4rem;
+    align-items: start;
+    }
+
+    .project-grid {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    }
+
+    .project-grid img,
+    .project-grid video {
+    width: 100%;
+    max-width: 250px;
+    aspect-ratio: 9 / 16;
+    object-fit: cover;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    }
+
+
+    .side-large-image {
+        max-width: 100%;
+        width: clamp(300px, 50vw, 540px);
+        border-radius: 12px;
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .left-column,
+    .middle-column,
+    .right-column {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+        justify-content: center;
+        align-items: center;
+    }
+
+    
+
+    .details-section {
+        display: flex;
+        flex-direction: column;
+        gap: 0rem !important;
+        margin-top: 1rem;
+    }
+
+    .details-section div {
+      flex: 1 1 240px;
+    }
+
+    .details-section li {
+      font-size: clamp(14px, 1.2vw, 18px);
+    }
+
+    h2 {
+      color: #c25a14;
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+
+    p {
+        font-size: clamp(14px, 1.2vw, 18px);;
+    }
+
+    .back-link {
+      display: inline-block;
+      margin-top: 3rem;
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: bold;
+      align-self: flex-start;
+    }
+
+    .back-link:hover {
+      text-decoration: underline;
+    }
+
+    .left-box {
+        background-color: #f58942;
+        padding: 2rem;
+        margin-top: 8rem;
+        border-radius: 16px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+        max-width: 600px;         /* sets a max width */
+        width: 100%;              /* lets it be responsive */
+        /* margin: 0 auto; */
+    }
+
+    .middle-box {
+        background-color: #dfd7d2;
+        padding: 0rem 1rem 0rem 1rem;
+        margin: 3rem;
+        border-radius: 16px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+        max-width: 600px;         /* sets a max width */
+        width: 100%;              /* lets it be responsive */
+        /* margin: 0 auto; */
+    }
+
+    
+
+  </style>
+</head>
+<body>
+
+  <section class="hero-banner">
+    <h1>Apiture Internship Project</h1>
+  </section>
+
+  <main class="project-content three-column-layout">
+
+    <!-- LEFT COLUMN -->
+    <div class="left-column">
+        <div class="left-box">
+            <div class="intro">
+            <p>
+                During my internship at Apiture, I worked on an internal auditing tool to track changes within the platform.
+                This project required me to dive into legacy Perl code, navigate field spaces, integrate CGI and HTML formatting,
+                and manage data using SQL queries.
+                <br><br>
+                This was my first time working in a professional development environment. I became familiar with tools like Bitbucket
+                and Jira for course control and task tracking. I faced a steep learning curve, but with the help of my mentor, 
+                I was able to adapt quickly. 
+            </p>
+            </div>
+        </div>
+
+        <div class="project-grid">
+        
+        
+        </div>
+        <a href="../projects2.html" class="back-link">← Back to Projects</a>
+    </div>
+
+    <!-- MIDDLE COLUMN: details -->
+    <div class="middle-column">
+        <div class="middle-box">
+            <div class="details-section">
+                <div>
+                    <h2>Key Outcomes</h2>
+                    <ul>
+                    <li>Gained experience with real-world codebases</li>
+                    <li>Improved my debugging and problem-solving skills</li>
+                    <li>Learned to use internal tools like watchlog and warn statements</li>
+                    <li>Built confidence in navigating unfamiliar code</li>
+                    <li>Became familiar with pair programming and asking questions in the work space</li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h2>Tools Used</h2>
+                    <ul>
+                    <li>Perl</li>
+                    <li>SQL</li>
+                    <li>Bitbucket</li>
+                    <li>Jira</li>
+                    <li>MicPerl</li>
+                    <li>HTML</li>
+                    <li>CGI</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="right-column">
+        <img src="../img/Apiture-name.png" alt="Apiture logo" class="side-large-image" />
+    </div>
+
+    </main>
+
+
+
+
+
+</body>
+</html>
