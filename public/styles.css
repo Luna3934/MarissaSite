@@ -183,7 +183,8 @@
     text-align: center;
     padding: 3rem 2rem;
     background: var(--background-light);
-    
+    overflow-x: hidden;
+    position: relative;
   }
 
   #education .section-heading {
@@ -211,6 +212,8 @@
   
   .education-wrapper {
     display: flex;
+    overflow-x: hidden;
+    position: relative;
     flex-wrap: wrap;
     gap: 2rem;
     margin: auto;
@@ -221,6 +224,8 @@
 
   .education-wrapper * {
     font-size: inherit !important;
+    overflow-x: hidden;
+    position: relative;
   }
   
   .education-left {
