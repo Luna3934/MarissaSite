@@ -470,6 +470,36 @@
     z-index: 3;
   }
 
+@media (max-width: 768px) {
+  .parallax .layer {
+    transform: none !important;
+    position: static !important;
+  }
+
+  .parallax-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .parallax span,
+  .parallax h2 {
+    display: block;
+    position: static !important;
+  }
+
+  .parallax img {
+    max-width: 80%;
+    height: auto;
+  }
+
+  .profile-pic {
+    max-width: 150px;
+  }
+}
+
+
 .name-title {
     color: #408667 !important;
     font-size: 3.5rem;
