@@ -54,7 +54,7 @@
     font-family: 'Inter', sans-serif;
     margin: 0;
     padding: 0;
-    overflow-x: hidden;
+    overflow-x: clip;
     background: var(--background-light);
     color: var(--text-light);
     transition: background 0.3s, color 0.3s;
@@ -212,7 +212,6 @@
   
   .education-wrapper {
     display: flex;
-    overflow-x: hidden;
     position: relative;
     flex-wrap: wrap;
     gap: 2rem;
@@ -224,8 +223,6 @@
 
   .education-wrapper * {
     font-size: inherit !important;
-    overflow-x: hidden;
-    position: relative;
   }
   
   .education-left {
