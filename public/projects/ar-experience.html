@@ -189,6 +189,23 @@
     }
 
 
+    .poster-image-mobile {
+      width: 100%;
+      height: auto;
+    }
+
+    @media (max-width: 768px) {
+      .pdf-view {
+        display: none;
+      }
+
+      .poster-image-mobile {
+        display: block;
+      }
+    }
+
+
+
     
 
   </style>
@@ -256,25 +273,32 @@
     </div>
 
     <div class="right-column">
-      <iframe
-        src="../img/HEB_Poster.pdf"
-        class="responsive-iframe"
+      <!-- Desktop: PDF -->
+      <!-- <iframe
+        src="../img/HEB_Poster.pdf#zoom=10"
+        class="responsive-iframe pdf-view"
         style="border: none; border-radius: 12px; box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);">
-      </iframe>
+      </iframe> -->
+
+      <!-- Mobile: Image preview -->
+      <img
+        src="../img/HEB_Poster.png"
+        alt="Poster image"
+        class="poster-image-mobile"
+        style="border-radius: 12px; box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);">
     </div>
 
+  </main>
 
-    </main>
 
-
-    <script>
+    <!-- <script>
       window.addEventListener('DOMContentLoaded', () => {
         const iframe = document.querySelector('.responsive-iframe');
         if (window.innerWidth <= 768) {
-          iframe.src = "../img/HEB_Poster.pdf#zoom=10";
+          iframe.src = "../img/HEB_Poster.pdf#zoom=0.5";
         }
       });
-    </script>
+    </script> -->
 
 
 
