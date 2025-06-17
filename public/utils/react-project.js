@@ -76,7 +76,7 @@ function ProjectGallery() {
           const key = `${project.id}-${direction}`;
 
           return (
-            <div key={key} className={`project-wrapper ${direction}`}>
+            <div key={key} className={`project-card ${direction}`}>
               <img src={project.image} alt={project.title} className="project-image" />
               <h2 className="project-title">
                 <a href={project.link} className="project-title-link">
