@@ -63,6 +63,32 @@
     align-items: start;
     }
 
+    @media (max-width: 768px) {
+  .three-column-layout {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .left-column,
+  .middle-column,
+  .right-column {
+    width: 100%;
+    margin-bottom: 1.5rem;
+  }
+
+  .project-grid img,
+  .project-grid video {
+    width: 90vw;
+  }
+
+  .responsive-iframe {
+    width: 90vw;
+    height: auto;
+  }
+}
+
+
     .project-grid {
     display: flex;
     gap: 1.5rem;
@@ -143,10 +169,21 @@
       text-decoration: underline;
     }
 
+
     .responsive-iframe {
-      width: 100%;
-      height: 80vh;
-      max-width: 100%;
+      width: 105%;
+      height: clamp(300px, 35vw, 540px);
+      aspect-ratio: 20 / 16; /* Maintains aspect ratio */
+      overflow: visible;
+    }
+
+    @media (max-width: 600px) {
+      .responsive-iframe {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 16 / 9;
+        overflow: visible; /* Ensures options like zoom and download are not cut off */
+      }
     }
 
 
