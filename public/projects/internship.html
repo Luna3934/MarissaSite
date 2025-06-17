@@ -16,6 +16,9 @@
         background-color: var(--bg-light) !important;
         color: var(--text-dark);
         font-family: 'Inter', sans-serif;
+        font-size: clamp(0.9rem, 2vw, 1rem);
+        overflow-x: hidden;
+        flex-wrap: wrap;
     }
 
 
@@ -38,7 +41,7 @@
 
     .hero-banner h1 {
       z-index: 1;
-      font-size: 2.5rem;
+      font-size: clamp(1.8rem, 5vw, 2.5rem);
       text-shadow: 1px 1px 8px rgba(0, 0, 0, 0.5);
     }
 
@@ -84,6 +87,7 @@
     .side-large-image {
         max-width: 100%;
         width: clamp(300px, 50vw, 540px);
+        height: auto;
         border-radius: 12px;
         box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
     }
@@ -112,17 +116,18 @@
     }
 
     .details-section li {
-      font-size: clamp(14px, 1.2vw, 18px);
+      font-size: clamp(0.85rem, 2.5vw, 1rem);
     }
 
     h2 {
       color: #c25a14;
       margin-bottom: 1rem;
       text-align: center;
+      font-size: clamp(1.2rem, 3vw, 1.5rem);
     }
 
     p {
-        font-size: clamp(14px, 1.2vw, 18px);;
+        font-size: clamp(0.85rem, 2.5vw, 1rem);;
     }
 
     .back-link {
@@ -140,8 +145,8 @@
 
     .left-box {
         background-color: #f58942;
-        padding: 2rem;
-        margin-top: 8rem;
+        padding: 1rem;
+        margin-top: 3vh;
         border-radius: 16px;
         box-shadow: 0 4px 12px rgba(0,0,0,0.06);
         max-width: 600px;         /* sets a max width */
@@ -151,15 +156,38 @@
 
     .middle-box {
         background-color: #dfd7d2;
-        padding: 0rem 1rem 0rem 1rem;
-        margin: 3rem;
+        padding: 0rem 1rem 1rem 1rem;
+        /* margin: 3rem; */
         border-radius: 16px;
         box-shadow: 0 4px 12px rgba(0,0,0,0.06);
         max-width: 600px;         /* sets a max width */
         width: 100%;              /* lets it be responsive */
+        margin-top: 3vh;
         /* margin: 0 auto; */
     }
 
+    .right-box {
+        background-color: #dfd7d2;
+        padding: 0rem 1rem 0rem 1rem;
+        /* margin: 3rem; */
+        border-radius: 16px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+        max-width: 600px;         /* sets a max width */
+        width: 100%;              /* lets it be responsive */
+        /* margin-top: 3vh; */
+        /* margin: 0 auto; */
+    }
+
+    .right-list { 
+      list-style-type: none !important; /* Removes dots from the list */
+      text-align: center;
+      padding: 0;
+    }
+
+    .right-list ul {
+      list-style-type: none; /* Ensures no dots for nested lists */
+      padding: 0;
+    }
     
 
   </style>
@@ -209,19 +237,6 @@
                     <li>Became familiar with pair programming and asking questions in the work space</li>
                     </ul>
                 </div>
-
-                <div>
-                    <h2>Tools Used</h2>
-                    <ul>
-                    <li>Perl</li>
-                    <li>SQL</li>
-                    <li>Bitbucket</li>
-                    <li>Jira</li>
-                    <li>MicPerl</li>
-                    <li>HTML</li>
-                    <li>CGI</li>
-                    </ul>
-                </div>
             </div>
         </div>
 
@@ -229,6 +244,22 @@
 
     <div class="right-column">
         <img src="../img/Apiture-name.png" alt="Apiture logo" class="side-large-image" />
+          <div class="right-box">
+            <div class="right-list">
+              <div>
+                  <h2>Tools Used</h2>
+                  <ul>
+                  <li>Perl</li>
+                  <li>SQL</li>
+                  <li>Bitbucket</li>
+                  <li>Jira</li>
+                  <li>MicPerl</li>
+                  <li>HTML</li>
+                  <li>CGI</li>
+                  </ul>
+              </div>
+            </div>
+          </div>
     </div>
 
     </main>
