@@ -10,9 +10,9 @@ const projectData = [
   {
     id: 1,
     title: "Senior Project:|Augmented Reality Experience",
-    description: "Deep learning model to colorize black and white photos",
+    description: "Online Shopping App with an AR tutorial",
     date: "2025-04-15",
-    tags: ["AR", "Mobile Development", "Flutter"],
+    tags: ["AR", "Flutter"],
     className: "one",
     image: "./img/hebuddy.gif", // Replace with your actual image path
     link: "projects/ar-experience.html"
