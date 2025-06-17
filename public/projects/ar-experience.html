@@ -181,8 +181,8 @@
       .responsive-iframe {
         width: 100%;
         height: auto;
-        transform: scale(0.8);
-        transform-origin: top center;
+        /* transform: scale(0.8); */
+        /* transform-origin: top center; */
         aspect-ratio: 16 / 9;
         overflow: visible; /* Ensures options like zoom and download are not cut off */
       }
@@ -267,6 +267,14 @@
     </main>
 
 
+    <script>
+      window.addEventListener('DOMContentLoaded', () => {
+        const iframe = document.querySelector('.responsive-iframe');
+        if (window.innerWidth <= 768) {
+          iframe.src = "../img/HEB_Poster.pdf#zoom=60";
+        }
+      });
+    </script>
 
 
 
