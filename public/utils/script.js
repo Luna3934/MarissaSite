@@ -64,6 +64,7 @@ window.addEventListener("resize", updateHeroTextOffset);
 // ------------------------------
 document.addEventListener("mousemove", function (event) {
   document.querySelectorAll(".parallax-wrap span").forEach((shift) => {
+    if(window.innerWidth < 550) return; // Skip on mobile
     const pos = shift.getAttribute("value");
     const x = (window.innerWidth - event.pageX * pos) / 120;
     const y = (window.innerHeight - event.pageY * pos) / 120;
