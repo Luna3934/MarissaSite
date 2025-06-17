@@ -79,7 +79,7 @@
 
   .project-grid img,
   .project-grid video {
-    width: 90vw;
+    width: 300vw;
   }
 
   .responsive-iframe {
@@ -105,6 +105,14 @@
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
     }
 
+    @media(max-width: 768px) {
+        .project-grid img,
+        .project-grid video {
+            width: 100%;
+            max-width: 300px;
+            aspect-ratio: 9 / 16;
+        }
+    }
 
     .side-large-image {
         max-width: 100%;
