@@ -188,6 +188,27 @@
       list-style-type: none; /* Ensures no dots for nested lists */
       padding: 0;
     }
+
+
+    @media (max-width: 768px) {
+  .three-column-layout {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  .left-column,
+  .middle-column,
+  .right-column {
+    width: 100%;
+  }
+
+  .project-grid {
+    justify-content: center;
+  }
+}
+
     
 
   </style>
