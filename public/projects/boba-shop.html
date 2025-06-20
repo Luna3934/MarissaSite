@@ -3,124 +3,101 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>AR HEB Project</title>
+  <title>Boba POS Project</title>
   <style>
     :root {
-        --bg-light: #fdf8f3; /* soft cream */
-        --accent: #b06e50;   /* fall accent */
-        --text-dark: #3e2c20;
-        --text-light: #ffffff;
+      --bg-light: #fdf8f3;
+      --accent: #8c5e3c; /* tea-brown accent */
+      --text-dark: #3e2c20;
     }
 
     body {
-        background-color: var(--bg-light) !important;
-        color: var(--text-dark);
-        font-family: 'Inter', sans-serif;
+      background-color: var(--bg-light);
+      color: var(--text-dark);
+      font-family: 'Inter', sans-serif;
+      font-size: clamp(0.9rem, 2vw, 1rem);
+      overflow-x: hidden;
     }
 
-
     .hero-banner {
-      background-color: #b60000;
+      background-color: #e67cb3;
       height: 18vh;
       display: flex;
       align-items: center;
       justify-content: center;
-      text-align: center;
       color: white;
+      text-align: center;
       position: relative;
-    }
-
-    .hero-banner::after {
-      content: '';
-      position: absolute;
-      inset: 0;
     }
 
     .hero-banner h1 {
       z-index: 1;
-      font-size: 2.5rem;
+      font-size: clamp(1.8rem, 5vw, 2.5rem);
       text-shadow: 1px 1px 8px rgba(0, 0, 0, 0.5);
     }
 
     .project-content {
-      max-width: 85%;
+      max-width: 95%;
       margin: 3rem auto;
+      margin-top: 1.5rem;
       padding: 0 1.5rem;
     }
 
-    .intro {
-      /* margin-bottom: 2rem; */
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-    }
-
     .three-column-layout {
-    display: grid;
-    grid-template-columns: 1.7fr 0.9fr 1.5fr;
-    gap: 2rem;
-    align-items: start;
-    }
-
-    .project-grid {
-    display: flex;
-    gap: 1.5rem;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    }
-
-    .project-grid img,
-    .project-grid video {
-    width: 100%;
-    max-width: 250px;
-    aspect-ratio: 9 / 16;
-    object-fit: cover;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-    }
-
-
-    .side-large-image {
-        max-width: 100%;
-        width: clamp(300px, 50vw, 540px);
-        border-radius: 12px;
-        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+      display: grid;
+      grid-template-columns: 1.5fr 2fr 0.9fr;
+      gap: 4rem;
+      align-items: start;
     }
 
     .left-column,
     .middle-column,
     .right-column {
-        display: flex;
-        flex-direction: column;
-        gap: 1.5rem;
-        justify-content: center;
-        align-items: center;
-    }
-
-    
-
-    .details-section {
-        display: flex;
-        flex-direction: column;
-        gap: 0rem !important;
-        margin-top: 4rem;
-    }
-
-    .details-section div {
-      flex: 1 1 300px;
-      align-content: center;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
       align-items: center;
+    }
+
+    .left-box, .middle-box, .right-box {
+      background-color: #ffffff;
+      padding: 1rem;
+      border-radius: 16px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+      max-width: 600px;
+      width: 100%;
+    }
+
+    .intro {
+      text-align: center;
+    }
+
+    .details-section ul {
+      padding-left: 1.2rem;
+    }
+
+    .details-section li {
+      font-size: clamp(0.85rem, 2.5vw, 1rem);
+      margin-bottom: 0.5rem;
+    }
+
+    .project-video {
+      width: 100%;
+      max-width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
     }
 
     h2 {
       color: var(--accent);
-      margin-bottom: 1rem;
       text-align: center;
+      font-size: clamp(1.2rem, 3vw, 1.5rem);
+      margin-bottom: 1rem;
     }
 
     .back-link {
       display: inline-block;
-      /* margin-top: 1rem; */
+      /* margin-top: .5rem; */
       color: var(--accent);
       text-decoration: none;
       font-weight: bold;
@@ -131,87 +108,83 @@
       text-decoration: underline;
     }
 
-    
+    @media (max-width: 768px) {
+      .three-column-layout {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+        align-items: center;
+      }
 
+      .left-column,
+      .middle-column,
+      .right-column {
+        width: 100%;
+      }
+    }
   </style>
 </head>
 <body>
 
   <section class="hero-banner">
-    <h1>Augmented Reality HEB Experience</h1>
+    <h1>Boba Shop Website & POS System</h1>
   </section>
 
   <main class="project-content three-column-layout">
 
     <!-- LEFT COLUMN -->
     <div class="left-column">
+      <div class="left-box">
         <div class="intro">
-        <p>
-            This senior project merges real-world grocery shopping with augmented reality and 
-            image recognition. In a team, I focused on an AR experience.
-            I created an interactive AR tutorial that guides users through the app's features. 
-            To implement this into our Flutter app,
-            I found an AR plugin that integrates both ARKit and ARCore, allowing us to
-            create a seamless experience for both iOS and Android users. The AR tutorial uses 
-            plane detection to place virtual objects in the user's environment and object collision
-            to create an interactive experience. 
-        </p>
+          <p>
+            Within a group of computer science/engineering students, my team and I created a custom website and point-of-sale (POS) system for a boba shop. It's designed to streamline the customer ordering experience and staff's backend order management. The system allows users to browse the menu, customize drinks, and place orders with a clean and responsive UI.<br>Not sponsored by any boba shop, but I love boba!
+          </p>
         </div>
-
-        <div class="project-grid">
-        <img src="../img/HEBuddy wave.png" alt="HEBuddy model" />
-        <video controls poster="../img/AR Experience_frame.jpeg">
-            <source src="../video/boba-shop.mp4" type="video/mp4" />
-            Your browser does not support the video tag.
-        </video>
-        
+      </div>
+      <div class="left-box">
+        <div class="intro">
+          <p>
+            A draft was created with Java Spring Framework. The full stack project was built to simulate real-world workflows and give us hands-on experience with both front-end and back-end development. My group followed an Agile development process with weekly sprints where I was in charge of running stand-up meetings and creating burndown charts. I was also responsible for the front-end development using React, as well as integrating the back-end API with UI.
+          </p>
         </div>
-        <a href="../projects2.html" class="back-link">← Back to Projects</a>
+      </div>
+      <a href="../projects2.html" class="back-link">← Back to Projects</a>
     </div>
 
-    <!-- MIDDLE COLUMN: details -->
+    <!-- MIDDLE COLUMN -->
     <div class="middle-column">
-        <div class="details-section">
-            <div>
-                <h2>Features</h2>
-                <ul>
-                <li>Image recognition for pantry/fridge scanning</li>
-                <li>Augmented reality tutorial</li>
-                <li>Auto-generated grocery lists</li>
-                <li>Personalized recipe suggestions</li>
-                <li>Allergy warnings and filters</li>
-                <li>In-app grocery checkout</li>
-                </ul>
-            </div>
-
-            <div>
-                <h2>Tools Used</h2>
-                <ul>
-                <li>Flutter & Dart</li>
-                <li>ARKit & ARCore</li>
-                <li>Postgres for a custom database</li>
-                <li>TensorFlow Lite</li>
-                </ul>
-            </div>
-        </div>
-
+      <div class="middle-box">
+        <video class="project-video" controls poster="../img/boba-poster.png">
+          <source src="../video/Boba_POS_Demo.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
     </div>
 
+    <!-- RIGHT COLUMN -->
     <div class="right-column">
-    <iframe
-        src="../img/HEB_Poster.pdf"
-        width="100%"
-        height="700px"
-        style="border: none; border-radius: 12px; box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);"
-    >
-    </iframe>
+      <div class="right-box">
+        <h2>Tools Used</h2>
+        <ul class="details-section">
+          <li>HTML / CSS / JavaScript</li>
+          <li>React + Vite</li>
+          <li>Node.js + Express</li>
+          <li>PostgreSQL</li>
+          <li>Microsoft Azure AD via MSAL</li>
+          <li>Weather and Translation APIs</li>
+        </ul>
+      </div>
+      <div class="right-box" style="text-align: center;">
+        <h2>Github Links</h2>
+        <p>
+          <a href="https://github.com/Luna3934/BobaShopReactProject">React Version</a>
+          <br>
+          <a href="https://github.com/Luna3934/BobaShopJavaSpringProject">Java Spring Version</a>
+        </p>
+      </div>
     </div>
 
-    </main>
-
-
-
-
+  </main>
 
 </body>
 </html>

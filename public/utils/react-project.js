@@ -30,12 +30,13 @@ const projectData = [
   {
     id: 3,
     title: "Boba Shop Website/POS System",
-    description: "Personal site showcasing resume and projects",
+    description: "A full-stack website for a boba shop with a POS system",
     date: "2025-01-10",
     tags: ["HTML", "CSS", "JavaScript","React", "SQL"],
     className: "three",
-    image: "images/resume_site.jpg", // Replace with your actual image path
-    link: "projects/resume-site.html"
+    image: "./img/boba-poster.jpeg", // Replace with your actual image path
+    link: "projects/boba-shop.html",
+    imgClass: "large-img"
   }
 ];
 
@@ -77,7 +78,12 @@ function ProjectGallery() {
 
           return (
             <div key={key} className={`project-card ${direction}`}>
-              <img src={project.image} alt={project.title} className="project-image" />
+              <img
+                src={project.image}
+                alt={project.title}
+                className={`project-image${project.imgClass ? " " + project.imgClass : ""}`}
+              />
+
               <h2 className="project-title">
                 <a href={project.link} className="project-title-link">
                   {project.title.split("|").map((line, i) => (
