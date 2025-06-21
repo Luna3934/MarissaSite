@@ -33,7 +33,7 @@ const projectData = [
     title: "Apiture Internship Project",
     description: "Debugging Page",
     date: "2025-03-01",
-    tags: ["SQL", "Perl", "HTML"],
+    tags: ["SQL", "Perl", "HTML/CSS"],
     className: "two",
     image: "./img/Apiture-logo.jpg", // Replace with your actual image path
     link: "projects/internship.html"

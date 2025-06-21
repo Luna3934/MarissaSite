@@ -2,18 +2,30 @@
     --bg-color: #C4452F;
     --text-color: #f2e6dc;
     --accent-color: #d6a77a;
+    --button-active: #5e3d29;
+    --button-color: #d69a7c;
     --accent-hover: #e9bfa5;
     --project-bg: #ffffff;
     --project-text: #30170d;
+    --card-text-color: #30170d;
+    --grad1: #5e3d29;
+    --grad2: #2e1c13;
+    --bg-pattern: linear-gradient(135deg, var(--bg-color), var(--project-text))
   }
   
   .light-side {
-    --bg-color: #f7f3ef;
+    --bg-color: #f1f1f1;
     --text-color: #3e2c20;
-    --accent-color: #b06e50;
+    --accent-color: #684636;
+    --button-active: #c45730;
+    --button-color: #d69a7c;
     --accent-hover: #d69a7c;
-    --project-bg: #fff5e9;
-    --project-text: #3e2c20;
+    --project-bg: #cc7150;
+    --project-text: #191919;
+    --card-text-color: #30170d;
+    --grad1: #C4452F;
+    --grad2: #d6a77a;
+    --bg-pattern: linear-gradient(135deg, var(--bg-color), var(--bg-color));
   }
   
   
@@ -30,7 +42,7 @@
 
 html {
     width: 100vw;
-    height: 500vh;
+    height: 400vh;
 }
 
 img {
@@ -62,7 +74,7 @@ canvas {
 body {
     font-family: 'Inter', sans-serif;
     margin: 0;
-    background: linear-gradient(135deg, var(--bg-color), var(--project-text));
+    background: var(--bg-pattern);
 
     color: var(--text-color);
     transition: background 0.3s, color 0.3s;
@@ -117,7 +129,7 @@ body {
 
   .fall-hero {
     height: 100vh;
-    background: linear-gradient(to bottom, #5e3d29, #2e1c13);
+    background: linear-gradient(to bottom, var(--grad1), var(--grad2));
     display: flex;
     justify-content: center;
     align-items: center;
@@ -197,8 +209,8 @@ body {
 
 
   .project-card {
-    background: #fffaf4;
-    color: #4b2e1d;
+    background: var(--project-bg);
+    color: var(--project-text);
     border-radius: 12px;
     box-shadow: 0 8px 20px rgba(0,0,0,0.15);
     padding: 2.5rem;
@@ -211,6 +223,10 @@ body {
         opacity 0.4s ease,
         top 0.4s ease,
         left 0.4s ease;
+  }
+
+  .project-card p {
+    color: var(--card-text-color);
   }
   
   /* Optional: add puzzle-like visual variation */
@@ -256,7 +272,7 @@ body {
   }
   
   .filter-buttons button {
-    background-color: var(--project-bg);
+    background-color: var(--button-color);
     color: var(--project-text);
     padding: 0.5rem 1rem;
     border: 2px solid var(--accent-color);
@@ -274,19 +290,19 @@ body {
   }
   
   .filter-buttons button.active {
-    background-color: var(--accent-color);
+    background-color: var(--button-active);
     color: var(--text-color);
   }
   
 
   .project-title-link {
     text-decoration: none;
-    color: var(--accent-color); /* Or a specific color like #3e2c20 */
+    color: var(--project-text); /* Or a specific color like #3e2c20 */
     transition: color 0.2s ease, text-shadow 0.2s ease;
   }
 
 .project-title-link:hover {
-  color: var(--project-text); /* Your site’s accent color */
+  color: var(--text-color); /* Your site’s accent color */
   text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
 }
 
