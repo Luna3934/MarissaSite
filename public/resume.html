@@ -57,6 +57,26 @@
       box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
     }
 
+    .pdf-image-mobile {
+    display: none;
+    width: 100%;
+    height: auto;
+    margin: 1rem 1rem 1rem 1rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Mobile override */
+    @media (max-width: 768px) {
+    .pdf-frame {
+        display: none;
+    }
+
+    .pdf-image-mobile {
+        display: block;
+    }
+    }
+
     .resume-links {
       display: flex;
       flex-wrap: wrap;
@@ -198,7 +218,13 @@
   <h2>Inspired by Summer</h2>
 
   <!-- PDF View -->
-  <iframe class="pdf-frame" src="./pdfs/Long Resume.pdf"></iframe>
+  <!-- Desktop: PDF iframe -->
+    <iframe class="pdf-frame" src="./pdfs/Long Resume.pdf"></iframe>
+
+    <!-- Mobile: Image fallback -->
+    <img class="pdf-image-mobile" src="./img/Long Resume1.jpg" alt="Resume preview page 1" />
+    <img class="pdf-image-mobile" src="./img/Long Resume2.jpg" alt="Resume preview page 2" />
+
 
   <!-- Resume Links -->
   <div class="resume-links">
