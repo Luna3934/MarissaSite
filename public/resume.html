@@ -6,6 +6,13 @@
   <title>Resume - Marissa Mallinger</title>
   <style>
     :root {
+      --bg: #47463f;           /* light beach sand */
+      --accent: #ff914d;       /* vibrant coral */
+      --text: #2c2c2c;         /* dark for contrast */
+      --link-bg: #fca74d;      /* lighter coral highlight */
+    }
+
+    .light-side {
       --bg: #fef9e6;           /* light beach sand */
       --accent: #ff914d;       /* vibrant coral */
       --text: #2c2c2c;         /* dark for contrast */
@@ -13,7 +20,7 @@
     }
 
     body {
-      margin: 0;
+      /* margin: 0; */
       padding: 0;
       background-color: var(--bg);
       color: var(--text);
@@ -22,16 +29,18 @@
       flex-direction: column;
       align-items: center;
       min-height: 100vh;
+      /* background: linear-gradient(180deg, #ffe29a, #ffa751, #ff7b00); */
     }
 
     h1 {
-      margin-top: 2rem;
+      margin: 2rem 0 0 0;
       font-size: 2rem;
       color: var(--accent);
     }
 
      h2 {
       /* margin-top: 2rem; */
+      margin: 1rem 0 0 0;
       font-size: 1.5rem;
       color: var(--accent);
     }
@@ -69,18 +78,18 @@
       color: white;
     }
 
-    h1::before {
+    h2::before {
     content: '🌞';
     animation: bounce 1.5s infinite;
     display: inline-block;
     margin-right: 0.5rem;
     }
 
-     h1::after {
+     h2::after {
     content: '🌞';
     animation: bounce 1.5s infinite;
     display: inline-block;
-    margin-right: 0.5rem;
+    margin-left: 0.5rem;
     }
 
     @keyframes bounce {
@@ -121,6 +130,44 @@
   nav a:hover {
     color: #9db7ad; /* soft highlight */
   }
+
+  #theme-toggle {
+    background: none;
+    border: none;
+    color: #f0f5f2;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+  }
+
+  .wave-container {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    z-index: -1;
+    }
+
+    .animated-sun {
+    width: 100px;
+    height: 100px;
+    background: radial-gradient(circle, #ffd700, #ffae00);
+    border-radius: 50%;
+    position: absolute;
+    top: 40px;
+    left: 40px;
+    animation: float 5s ease-in-out infinite;
+    z-index: 1;
+    }
+
+    @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+    }
+
+
+
   </style>
 </head>
 <body>
@@ -135,6 +182,9 @@
       </ul>
     </nav>
 
+    <div class="animated-sun"></div>
+
+
   <h1>Marissa Mallinger - Resume Hub</h1>
   <h2>Inspired by Summer</h2>
 
@@ -147,6 +197,11 @@
     <a href="./pdfs/Short Resume.pdf" download>Download One-Page Resume</a>
   </div>
 
-  <script defer src="./utils/navbar.js"></script>
+  <div class="wave-container">
+    <svg viewBox="0 0 1440 320"><path fill="#fb6e12" fill-opacity="1" d="M0,96L60,112C120,128,240,160,360,170.7C480,181,600,171,720,165.3C840,160,960,160,1080,154.7C1200,149,1320,139,1380,133.3L1440,128L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path></svg>
+    </div>
+
+
+  <script defer src="./utils/script3.js"></script>
 </body>
 </html>

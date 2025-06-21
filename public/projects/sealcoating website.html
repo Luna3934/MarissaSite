@@ -122,9 +122,91 @@
         width: 100%;
       }
     }
+
+    nav {
+    position: fixed;
+    top: 3.5rem;
+    right: 1rem;
+    background-color: rgba(34, 24, 18, 0.95);
+    padding: 1rem;
+    border-radius: 8px;
+    backdrop-filter: blur(8px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+
+  nav.hidden {
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-10px);
+  }
+
+  nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: flex-end;
+  }
+
+  nav a {
+    color: #ffe6c7;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+  }
+
+  nav a:hover {
+    color: var(--accent-hover);
+  }
+
+  #theme-toggle {
+    background: none;
+    border: none;
+    color: #ffe6c7;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+  }
+
+  #theme-toggle:hover {
+    transform: rotate(20deg);
+  }
+
+  #menu-toggle {
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    background: rgba(34, 24, 18, 0.85);
+    border: none;
+    color: #ffe6c7;
+    font-size: 1.5rem;
+    padding: 0.5rem 0.75rem;
+    border-radius: 6px;
+    z-index: 1001;
+    cursor: pointer;
+  }
   </style>
 </head>
 <body>
+
+  <button id="menu-toggle" aria-label="Toggle menu">
+    ☰
+  </button>
+
+  <!-- Nav Menu -->
+  <nav id="main-nav" class="hidden">
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="resume.html">Resume</a></li>
+      <li><a href="projects.html">Projects</a></li>
+      <li><a href="jobs.html">Jobs</a></li>
+      <li><button id="theme-toggle">🌙</button></li>
+    </ul>
+  </nav>
 
   <section class="hero-banner">
     <h1>Finishing Touch Sealcoating Website</h1>
@@ -175,5 +257,39 @@
 
   </main>
 
+  <script>
+      const themeToggle = document.getElementById("theme-toggle");
+      const body = document.body;
+
+      // Apply saved theme on page load (default is dark mode)
+      const savedTheme = localStorage.getItem("theme");
+      const isLight = savedTheme === "light";
+
+      if (isLight) {
+        body.classList.add("light-side");
+        if (themeToggle) themeToggle.textContent = "☀️";
+      } else {
+        body.classList.remove("light-side");
+        if (themeToggle) themeToggle.textContent = "🌙";
+      }
+
+      // Toggle theme on click
+      if (themeToggle) {
+        themeToggle.addEventListener("click", () => {
+          const isNowLight = body.classList.toggle("light-side");
+          localStorage.setItem("theme", isNowLight ? "light" : "dark");
+          themeToggle.textContent = isNowLight ? "☀️" : "🌙";
+        });
+      }
+
+
+      const menuToggle = document.getElementById("menu-toggle");
+      const navMenu = document.getElementById("main-nav");
+
+      menuToggle.addEventListener("click", () => {
+        navMenu.classList.toggle("hidden");
+      });
+
+    </script>
 </body>
 </html>

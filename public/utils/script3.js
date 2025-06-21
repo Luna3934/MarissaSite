@@ -1,10 +1,24 @@
 const themeToggle = document.getElementById("theme-toggle");
 const body = document.body;
 
+// Apply saved theme on page load (default is dark mode)
+const savedTheme = localStorage.getItem("theme");
+const isLight = savedTheme === "light";
+
+if (isLight) {
+  body.classList.add("light-side");
+  if (themeToggle) themeToggle.textContent = "☀️";
+} else {
+  body.classList.remove("light-side");
+  if (themeToggle) themeToggle.textContent = "🌙";
+}
+
+// Toggle theme on click
 if (themeToggle) {
   themeToggle.addEventListener("click", () => {
-    const isLight = body.classList.toggle("light-side");
-    themeToggle.textContent = isLight ? "☀️" : "🌙";
+    const isNowLight = body.classList.toggle("light-side");
+    localStorage.setItem("theme", isNowLight ? "light" : "dark");
+    themeToggle.textContent = isNowLight ? "☀️" : "🌙";
   });
 }
 
