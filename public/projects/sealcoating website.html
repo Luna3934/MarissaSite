@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Boba POS Project</title>
+  <style>
+    :root {
+      --bg-light: #fdf8f3;
+      --accent: #8c5e3c; /* tea-brown accent */
+      --text-dark: #3e2c20;
+    }
+
+    body {
+      background-color: var(--bg-light);
+      color: var(--text-dark);
+      font-family: 'Inter', sans-serif;
+      font-size: clamp(0.9rem, 2vw, 1rem);
+      overflow-x: hidden;
+    }
+
+    .hero-banner {
+      background-color: #ead324;
+      height: 18vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      text-align: center;
+      position: relative;
+    }
+
+    .hero-banner h1 {
+      z-index: 1;
+      font-size: clamp(1.8rem, 5vw, 2.5rem);
+      text-shadow: 1px 1px 8px rgba(0, 0, 0, 0.5);
+    }
+
+    .project-content {
+      max-width: 95%;
+      margin: 3rem auto;
+      margin-top: 1.5rem;
+      padding: 0 1.5rem;
+    }
+
+    .three-column-layout {
+      display: grid;
+      grid-template-columns: 1.5fr 2fr 0.9fr;
+      gap: 4rem;
+      align-items: start;
+    }
+
+    .left-column,
+    .middle-column,
+    .right-column {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      align-items: center;
+    }
+
+    .left-box, .middle-box, .right-box {
+      background-color: #ffffff;
+      padding: 1rem;
+      border-radius: 16px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+      max-width: 600px;
+      width: 100%;
+    }
+
+    .intro {
+      text-align: center;
+    }
+
+    .details-section ul {
+      padding-left: 1.2rem;
+    }
+
+    .details-section li {
+      font-size: clamp(0.85rem, 2.5vw, 1rem);
+      margin-bottom: 0.5rem;
+    }
+
+    .project-video {
+      width: 100%;
+      max-width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    }
+
+    h2 {
+      color: var(--accent);
+      text-align: center;
+      font-size: clamp(1.2rem, 3vw, 1.5rem);
+      margin-bottom: 1rem;
+    }
+
+    .back-link {
+      display: inline-block;
+      /* margin-top: .5rem; */
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: bold;
+      align-self: flex-start;
+    }
+
+    .back-link:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 768px) {
+      .three-column-layout {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+        align-items: center;
+      }
+
+      .left-column,
+      .middle-column,
+      .right-column {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <section class="hero-banner">
+    <h1>Finishing Touch Sealcoating Website</h1>
+  </section>
+
+  <main class="project-content three-column-layout">
+
+    <!-- LEFT COLUMN -->
+    <div class="left-column">
+      <div class="left-box">
+        <div class="intro">
+          <p>
+            I worked with the owner of a Sealcoating company to create a website that would help him reach more customers and provide information about his services. The site includes a contact form, service descriptions, and a gallery of completed projects. The site includes SendGrid emailing service, which allows users to easily get in touch with the business.
+            <br><br>
+            After initial deployment, I continued to work with the owner to update the site with new content and improve its SEO. This included adding new service pages, optimizing images, and implementing best practices for search engine visibility.
+          </p>
+        </div>
+      </div>
+      <a href="../projects2.html" class="back-link">← Back to Projects</a>
+    </div>
+
+    <!-- MIDDLE COLUMN -->
+    <div class="middle-column">
+      <div class="middle-box">
+        <img src="../img/FTSealcoatingPic.png" alt="Sealcoating Website Screenshot" class="project-video">
+      </div>
+    </div>
+
+    <!-- RIGHT COLUMN -->
+    <div class="right-column">
+      <div class="right-box">
+        <h2>Tools Used</h2>
+        <ul class="details-section">
+          <li>HTML / CSS / JavaScript</li>
+          <li>Vercel</li>
+          <li>SendGrid API</li>
+          <li>Github for version control</li>
+          <li>Google Search Console</li>
+        </ul>
+      </div>
+      <div class="right-box" style="text-align: center;">
+        <h2>Website Link</h2>
+        <p>
+          <a href="https://finishingtouchsealcoating.com">Finishing Touch Sealcoating</a>
+        </p>
+      </div>
+    </div>
+
+  </main>
+
+</body>
+</html>

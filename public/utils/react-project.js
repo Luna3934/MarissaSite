@@ -9,6 +9,17 @@ const { useState, useRef } = React;
 const projectData = [
   {
     id: 1,
+    title: "Finishing Touch Sealcoating Website",
+    description: "Professional business website for a sealcoating company",
+    date: "2025-04-15",
+    tags: ["HTML/CSS", "JavaScript"],
+    className: "one",
+    image: "./img/FTSealcoatingPic.png", // Replace with your actual image path
+    link: "projects/sealcoating website.html",
+    imgClass: "ft-sealcoating-img"
+  },
+  {
+    id: 2,
     title: "Senior Project:|Augmented Reality Experience",
     description: "Online Shopping App with an AR tutorial",
     date: "2025-04-15",
@@ -18,7 +29,7 @@ const projectData = [
     link: "projects/ar-experience.html"
   },
   {
-    id: 2,
+    id: 3,
     title: "Apiture Internship Project",
     description: "Debugging Page",
     date: "2025-03-01",
@@ -28,11 +39,11 @@ const projectData = [
     link: "projects/internship.html"
   },
   {
-    id: 3,
+    id: 4,
     title: "Boba Shop Website/POS System",
     description: "A full-stack website for a boba shop with a POS system",
     date: "2025-01-10",
-    tags: ["HTML", "CSS", "JavaScript","React", "SQL"],
+    tags: ["HTML/CSS", "JavaScript","React", "SQL"],
     className: "three",
     image: "./img/boba-poster.jpeg", // Replace with your actual image path
     link: "projects/boba-shop.html",
