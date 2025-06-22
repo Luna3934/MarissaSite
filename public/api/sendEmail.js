@@ -20,7 +20,7 @@ export default async function handler(req, res) {
       from: 'private3934@gmail.com', // Must be verified in SendGrid
       replyTo: email, // recommended for actual sender traceability
       subject: 'Contact Form Submission',
-      text: `Name: ${name}\nEmail: ${email}\nPhone: ${phone || 'N/A'}\nMessage:\n${message}`,
+      text: `Name: ${name}\nEmail: ${email}\nMessage:\n${message}`,
     };
 
     await sendgrid.send(emailData);
