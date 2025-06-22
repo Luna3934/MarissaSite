@@ -1,6 +1,7 @@
 document.getElementById('contactForm').addEventListener('submit', async (event) => {
   event.preventDefault();
-
+    console.log('✅ formSubmission.js loaded');
+    
   const formData = {
     name: document.getElementById('name').value,
     email: document.getElementById('email').value,
