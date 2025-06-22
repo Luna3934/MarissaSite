@@ -1,9 +1,10 @@
-console.log('📩 /api/sendEmail was called');
+
 const sendgrid = require('@sendgrid/mail');
 
 sendgrid.setApiKey(process.env.SENDGRID_API_KEY);
 
 export default async function handler(req, res) {
+  console.log('📩 /api/sendEmail was called');
   if (req.method !== 'POST') {
     return res.status(405).json({ message: 'Method not allowed' });
   }
