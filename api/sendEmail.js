@@ -20,8 +20,8 @@ export default async function handler(req, res) {
       to: 'marissamallinger@gmail.com',
       from: 'contact@marissathedeveloper.website', // Must be verified in SendGrid
       replyTo: email, // Reply-to address
-      subject: 'Contact Form Submission',
-      text: `Name: ${name}\nEmail: ${email}\nMessage:\n${message}`,
+      subject: 'Website Contact Form',
+      text: `Someone contacted you from marissathedeveloper.website\n\nName: ${name}\n\nEmail: ${email}\n\nMessage:\n\n${message}`,
     };
 
     await sendgrid.send(emailData);
