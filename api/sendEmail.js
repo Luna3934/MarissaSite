@@ -18,8 +18,8 @@ export default async function handler(req, res) {
 
     const emailData = {
       to: 'marissamallinger@gmail.com',
-      from: 'private3934@gmail.com', // Must be verified in SendGrid
-      replyTo: email, // recommended for actual sender traceability
+      from: 'contact@marissathedeveloper.website', // Must be verified in SendGrid
+      replyTo: email, // Reply-to address
       subject: 'Contact Form Submission',
       text: `Name: ${name}\nEmail: ${email}\nMessage:\n${message}`,
     };
