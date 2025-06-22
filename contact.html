@@ -7,6 +7,20 @@
   <link rel="stylesheet" href="./stylesContact.css" />
 </head>
 <body>
+    <div id="navbar-placeholder"></div>
+
+  <script>
+    fetch('./navbar.html')
+      .then(response => response.text())
+      .then(html => {
+        document.getElementById('navbar-placeholder').innerHTML = html;
+
+        // Dynamically load navbar.js after HTML is injected
+        const script = document.createElement('script');
+        script.src = './utils/navbar.js';
+        document.body.appendChild(script);
+      });
+  </script>
 
     <section id="contact" class="contact-section">
         <h2>Let's Get in Touch</h2>

@@ -1,0 +1,101 @@
+
+<style>
+    /* Navigation */
+
+  nav {
+    position: fixed;
+    top: 2rem;
+    right: 2rem;
+    z-index: 1000;
+    background-color: rgba(15, 25, 35, 0.8); /* subtle dark glass */
+    padding: 1rem;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(8px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  }
+  
+  nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: flex-end;
+  }
+  
+  nav a {
+    color: #f0f5f2;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+  }
+  
+  nav a:hover {
+    color: #9db7ad; /* soft highlight */
+  }
+
+  nav.hidden {
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-10px);
+  }
+  
+  #theme-toggle {
+    background: none;
+    border: none;
+    color: #f0f5f2;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+  }
+  
+  #theme-toggle:hover {
+    transform: rotate(20deg);
+  }
+</style>
+
+
+<body>
+    <nav>
+    <ul>
+    <li><a href="./index.html">Home</a></li>
+    <li><a href="./resume.html">Resume</a></li>
+    <li><a href="./projects2.html">Projects</a></li>
+    <li><a href="#jobs">Jobs</a></li>
+    <li><a href="./contact.html">Contact</a></li>
+    <li><button id="theme-toggle">🌙</button></li>
+    </ul>
+</nav>
+</body>
+
+
+<script>
+    
+    const themeToggle = document.getElementById("theme-toggle");
+    const body = document.body;
+
+    // Apply saved theme on page load (default is dark mode)
+    const savedTheme = localStorage.getItem("theme");
+    const isLight = savedTheme === "light";
+
+    if (isLight) {
+    body.classList.add("light-side");
+    if (themeToggle) themeToggle.textContent = "☀️";
+    } else {
+    body.classList.remove("light-side");
+    if (themeToggle) themeToggle.textContent = "🌙";
+    }
+
+    // Toggle theme on click
+    if (themeToggle) {
+    themeToggle.addEventListener("click", () => {
+        const isNowLight = body.classList.toggle("light-side");
+        localStorage.setItem("theme", isNowLight ? "light" : "dark");
+        themeToggle.textContent = isNowLight ? "☀️" : "🌙";
+    });
+    }
+
+
+</script>
