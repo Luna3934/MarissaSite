@@ -1,7 +1,7 @@
 
 const sendgrid = require('@sendgrid/mail');
 
-sendgrid.setApiKey(process.env.SENDGRID_API_KEY);
+sendgrid.setApiKey(process.env.SENDGRID);
 
 export default async function handler(req, res) {
   console.log('📩 /api/sendEmail was called');
