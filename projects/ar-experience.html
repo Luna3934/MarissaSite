@@ -3,344 +3,367 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>AR HEB Project</title>
+  <title>AR HEB Project – Marissa Mallinger</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
   <style>
     :root {
-        --bg-light: #fdf8f3; /* soft cream */
-        --accent: #b06e50;   /* fall accent */
-        --text-dark: #3e2c20;
-        --text-light: #ffffff;
+      --navy:        #0b1520;
+      --dark-green:  #162b22;
+      --mid-green:   #2f614b;
+      --accent-teal: #4da67a;
+      --accent-glow: rgba(77, 166, 122, 0.2);
+      --text-light:  #e8f0ec;
+      --text-muted:  #8aab9a;
     }
+
+    *, *::before, *::after { box-sizing: border-box; }
 
     body {
-        background-color: var(--bg-light) !important;
-        color: var(--text-dark);
-        font-family: 'Inter', sans-serif;
+      font-family: 'Inter', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: var(--dark-green);
+      color: var(--text-light);
+      min-height: 100vh;
     }
 
-
+    /* ── Hero ── */
     .hero-banner {
-      background-color: #b60000;
-      height: 18vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      background: var(--navy);
+      padding: 5rem 2rem 3rem;
       text-align: center;
-      color: white;
       position: relative;
     }
 
     .hero-banner::after {
       content: '';
       position: absolute;
-      inset: 0;
+      bottom: 0; left: 10%; right: 10%;
+      height: 1px;
+      background: linear-gradient(to right, transparent, rgba(77,166,122,0.3), transparent);
+    }
+
+    .hero-eyebrow {
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent-teal);
+      margin: 0 0 0.75rem;
     }
 
     .hero-banner h1 {
-      z-index: 1;
-      font-size: clamp(1.5rem, 4vw, 2.5rem);
-      text-shadow: 1px 1px 8px rgba(0, 0, 0, 0.5);
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.8rem, 4vw, 3rem);
+      color: white;
+      margin: 0 0 1rem;
+      font-weight: 700;
+      line-height: 1.2;
     }
 
-    .project-content {
-      max-width: 95%;
-      margin: 1rem auto;
-      padding: 0 1.5rem;
-    }
-
-    .intro {
-      /* margin-bottom: 2rem; */
-      align-items: center;
+    .hero-tags {
+      display: flex;
+      gap: 0.5rem;
       justify-content: center;
-      text-align: center;
-      font-size: clamp(0.6rem, 2vw, 1rem);
+      flex-wrap: wrap;
     }
 
-    .three-column-layout {
-    display: grid;
-    grid-template-columns: 1.7fr 2.5fr 1.6fr !important;
-    gap: 1rem;
-    align-items: start;
+    .hero-tag {
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent-teal);
+      background: rgba(77,166,122,0.1);
+      border: 1px solid rgba(77,166,122,0.25);
+      padding: 0.25rem 0.7rem;
+      border-radius: 999px;
     }
 
-    @media (max-width: 768px) {
-  .three-column-layout {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
+    /* ── Back link ── */
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.82rem;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      padding: 2rem 3rem 0;
+      transition: color 0.2s ease;
+    }
 
-  .left-column,
-  .middle-column,
-  .right-column {
-    width: 100%;
-    margin-bottom: 1.5rem;
-  }
+    .back-link:hover { color: var(--accent-teal); }
 
-  .project-grid img,
-  .project-grid video {
-    width: 300vw;
-  }
+    /* ── Main layout ── */
+    .project-content {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 3rem 2rem 2rem;
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      gap: 3rem;
+      align-items: start;
+    }
 
-  .responsive-iframe {
-    width: 90vw;
-    height: auto;
-  }
-}
+    /* Full-width poster section */
+    .poster-section {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 2rem 6rem;
+    }
 
+    .poster-label {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--accent-teal);
+      margin-bottom: 1rem;
+    }
+
+    .poster-section img {
+      width: 100%;
+      height: auto;
+      border-radius: 12px;
+      border: 1px solid rgba(77,166,122,0.18);
+      box-shadow: 0 12px 35px rgba(0,0,0,0.4);
+    }
+
+    @media (max-width: 900px) {
+      .project-content {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* ── Left column ── */
+    .left-column {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    .intro-text {
+      font-size: 0.92rem;
+      font-weight: 300;
+      line-height: 1.8;
+      color: var(--text-light);
+      opacity: 0.88;
+    }
+
+    /* ── Details grid ── */
+    .details-section {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+    }
+
+    .detail-block h2 {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--accent-teal);
+      margin: 0 0 0.75rem;
+    }
+
+    .detail-block ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+
+    .detail-block ul li {
+      font-size: 0.85rem;
+      font-weight: 300;
+      color: var(--text-muted);
+      line-height: 1.5;
+      padding-left: 1rem;
+      position: relative;
+    }
+
+    .detail-block ul li::before {
+      content: '–';
+      position: absolute;
+      left: 0;
+      color: var(--accent-teal);
+      opacity: 0.5;
+    }
+
+    /* ── Middle column ── */
+    .middle-column {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.5rem;
+    }
 
     .project-grid {
-    display: flex;
-    gap: 1.5rem;
-    flex-wrap: wrap;
-    justify-content: center;
+      display: flex;
+      gap: 1.25rem;
+      flex-wrap: wrap;
+      justify-content: center;
+      width: 100%;
     }
 
     .project-grid img,
     .project-grid video {
-    width: 16vw;
-    aspect-ratio: 9 / 16;
-    object-fit: cover;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      width: 16vw;
+      min-width: 140px;
+      aspect-ratio: 9 / 16;
+      object-fit: cover;
+      border-radius: 12px;
+      border: 1px solid rgba(77,166,122,0.18);
+      box-shadow: 0 12px 35px rgba(0,0,0,0.4);
+      transition: transform 0.3s ease;
     }
 
-    @media(max-width: 768px) {
-        .project-grid img,
-        .project-grid video {
-            width: 100%;
-            max-width: 300px;
-            aspect-ratio: 9 / 16;
-        }
-    }
-
-    .side-large-image {
-        max-width: 100%;
-        width: clamp(300px, 50vw, 540px);
-        border-radius: 12px;
-        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
-    }
-
-    .left-column,
-    .middle-column,
-    .right-column {
-        display: flex;
-        flex-direction: column;
-        /* gap: 1.5rem; */
-        justify-content: center;
-        align-items: center;
-    }
-
-    
-
-    .details-section {
-        display: grid;
-        
-        grid-template-columns: 1fr .8fr;
-        /* gap: 1rem; */
-        align-items: start;
-        font-size: clamp(0.6rem, 2vw, 1rem);
-        margin-bottom: 1rem;
-        
-        /* gap: 0rem !important; */
-        /* margin-top: 2rem; */
-    }
-
-    .details-section div {
-      flex: 1 1 10px;
-      align-content: center !important;
-      align-items: center !important;
-      justify-content: center !important;
-      justify-items: center !important;
-
-      /* width: 15vw; */
-    }
-
-    h2 {
-      color: var(--accent);
-      margin-bottom: 0rem;
-      text-align: center;
-      font-size: clamp(0.6rem, 2vw, 1.5rem);
-    }
-
-    .back-link {
-      display: inline-block;
-      /* margin-top: 1rem; */
-      color: var(--accent);
-      text-decoration: none;
-      font-weight: bold;
-      align-self: flex-start;
-      font-size: clamp(0.8rem, 2vw, 1rem);
-    }
-
-    .back-link:hover {
-      text-decoration: underline;
-    }
-
-
-    .responsive-iframe {
-      width: 105%;
-      height: clamp(300px, 35vw, 540px);
-      aspect-ratio: 20 / 16; /* Maintains aspect ratio */
-      overflow: visible;
-    }
-
-    @media (max-width: 600px) {
-      .responsive-iframe {
-        width: 100%;
-        height: auto;
-        /* transform: scale(0.8); */
-        /* transform-origin: top center; */
-        aspect-ratio: 16 / 9;
-        overflow: visible; /* Ensures options like zoom and download are not cut off */
-      }
-    }
-
-
-    .poster-image-mobile {
-      width: 100%;
-      height: auto;
+    .project-grid img:hover,
+    .project-grid video:hover {
+      transform: translateY(-4px);
     }
 
     @media (max-width: 768px) {
-      .pdf-view {
-        display: none;
-      }
-
-      .poster-image-mobile {
-        display: block;
+      .project-grid img,
+      .project-grid video {
+        width: 100%;
+        max-width: 280px;
       }
     }
 
-  #menu-toggle {
-    position: fixed;
-    top: 1rem;
-    right: 1rem;
-    background: rgba(34, 24, 18, 0.85);
-    border: none;
-    color: #ffe6c7;
-    font-size: 1.5rem;
-    padding: 0.5rem 0.75rem;
-    border-radius: 6px;
-    z-index: 1001;
-    cursor: pointer;
-  }
+    /* ── Right column ── */
+    .right-column {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
 
-  #menu-toggle.hidden {
-    display:none;
-  }
-    
+    .right-column img {
+      width: 100%;
+      height: auto;
+      border-radius: 12px;
+      border: 1px solid rgba(77,166,122,0.18);
+      box-shadow: 0 12px 35px rgba(0,0,0,0.4);
+      transition: transform 0.3s ease;
+    }
 
+    .right-column img:hover {
+      transform: translateY(-3px);
+    }
+
+    /* ── Footer ── */
+    footer {
+      text-align: center;
+      padding: 1.5rem;
+      background: var(--navy);
+      color: rgba(255,255,255,0.25);
+      font-size: 0.8rem;
+      letter-spacing: 0.06em;
+    }
   </style>
 </head>
 <body>
 
-  <!-- Hamburger Button -->
-  <button id="menu-toggle" aria-label="Toggle menu">
-    ☰
-  </button>
-
   <div id="navbar-placeholder"></div>
-
   <script>
     fetch('../navbar.html')
       .then(res => res.text())
       .then(html => {
         document.getElementById('navbar-placeholder').innerHTML = html;
-
-        // Load navbar behavior
         const script = document.createElement('script');
         script.src = '../utils/navbar.js';
         document.body.appendChild(script);
-
-        // Modify nav for this page
-        const nav = document.querySelector("nav");
-        if (nav) {
-          nav.id = "main-nav";
-          nav.classList.add("hidden");
-        }
       });
   </script>
 
-
-  <section class="hero-banner">
+  <!-- ── Hero ── -->
+  <div class="hero-banner">
+    <p class="hero-eyebrow">Senior Project</p>
     <h1>Augmented Reality HEB Experience</h1>
-  </section>
+    <div class="hero-tags">
+      <span class="hero-tag">Flutter</span>
+      <span class="hero-tag">ARKit & ARCore</span>
+    </div>
+  </div>
 
-  <main class="project-content three-column-layout">
+  <a href="../projects2.html" class="back-link">← Back to Projects</a>
 
-    <!-- LEFT COLUMN -->
-    <div class="left-column">
-        <div class="intro">
-        <p>
-            For my senior project, I worked with the HEB Innovation Team to merge real-world grocery shopping with augmented reality and 
-            image recognition. While working with a team, I focused on an interactive AR tutorial 
-            that guides users through the app's features. 
-            <br /> To implement this into our Flutter app,
-            I took advantage of an AR plugin that integrates both ARKit and ARCore, allowing us to
-            create a seamless experience for both iOS and Android users. The AR tutorial uses 
-            plane detection to place virtual objects in the user's environment and object collision
-            to create an interactive experience. 
-        </p>
+  <!-- ── Content ── -->
+  <main class="project-content">
+
+    <!-- LEFT: text + details -->
+    <div class="left-column" data-aos="fade-right" data-aos-duration="700">
+      <p class="intro-text">
+        For my senior project, I worked with the HEB Innovation Team to merge real-world grocery
+        shopping with augmented reality and image recognition. While working with a team, I focused
+        on an interactive AR tutorial that guides users through the app's features.
+        <br /><br />
+        To implement this into our Flutter app, I took advantage of an AR plugin that integrates
+        both ARKit and ARCore, allowing a seamless experience for both iOS and Android users. The
+        AR tutorial uses plane detection to place virtual objects in the user's environment and
+        object collision to create an interactive experience.
+      </p>
+
+      <div class="details-section">
+        <div class="detail-block">
+          <h2>Features</h2>
+          <ul>
+            <li>Image recognition for pantry/fridge scanning</li>
+            <li>Augmented reality tutorial</li>
+            <li>Generated grocery lists</li>
+            <li>Recipe suggestions</li>
+            <li>In-app grocery checkout</li>
+          </ul>
         </div>
-
-        <div class="details-section">
-            <div>
-                <h2>Features</h2>
-                <ul>
-                <li>Image recognition for pantry/fridge scanning</li>
-                <li>Augmented reality tutorial</li>
-                <li>Generated grocery lists</li>
-                <li>Recipe suggestions</li>
-                <li>In-app grocery checkout</li>
-                </ul>
-            </div>
-
-            <div>
-                <h2>Tools Used</h2>
-                <ul>
-                <li>Flutter & Dart</li>
-                <li>ARKit & ARCore</li>
-                <li>Postgres for a custom database</li>
-                <li>TensorFlow Lite</li>
-                </ul>
-            </div>
+        <div class="detail-block">
+          <h2>Tools Used</h2>
+          <ul>
+            <li>Flutter & Dart</li>
+            <li>ARKit & ARCore</li>
+            <li>PostgreSQL</li>
+            <li>TensorFlow Lite</li>
+          </ul>
         </div>
-        
-        
-        <a href="../projects2.html" class="back-link">← Back to Projects</a>
+      </div>
     </div>
 
-    <!-- MIDDLE COLUMN: details -->
-    <div class="middle-column">
-        <div class="project-grid">
+    <!-- RIGHT: media -->
+    <div class="middle-column" data-aos="fade-left" data-aos-duration="700" data-aos-delay="100">
+      <div class="project-grid">
         <img src="../img/HEBuddy wave.png" alt="HEBuddy model" />
         <video controls poster="../img/AR Experience_frame.jpeg">
-            <source src="../video/AR_Experience.mp4" type="video/mp4" />
-            Your browser does not support the video tag.
+          <source src="../video/AR_Experience.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
         </video>
-        </div>
-
-    </div>
-
-    <div class="right-column">
-      <!-- Desktop: PDF -->
-      <!-- <iframe
-        src="../img/HEB_Poster.pdf#zoom=10"
-        class="responsive-iframe pdf-view"
-        style="border: none; border-radius: 12px; box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);">
-      </iframe> -->
-
-      <!-- Mobile: Image preview -->
-      <img
-        src="../img/HEB_Poster.png"
-        alt="Poster image"
-        class="poster-image-mobile"
-        style="border-radius: 12px; box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);">
+      </div>
     </div>
 
   </main>
 
+  <!-- ── Full-width poster ── -->
+  <div class="poster-section" data-aos="fade-up" data-aos-duration="700">
+    <p class="poster-label">Project Poster</p>
+    <img src="../img/HEB_Poster.png" alt="Project poster" />
+  </div>
+
+  <footer>
+    <p>&copy; 2025 Marissa Mallinger. All Rights Reserved.</p>
+  </footer>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({ offset: 100, duration: 700, once: true, easing: 'ease-out-cubic' });
+  </script>
 
 </body>
 </html>

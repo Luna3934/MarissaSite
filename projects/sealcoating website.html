@@ -3,223 +3,303 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Boba POS Project</title>
+  <title>Finishing Touch Sealcoating – Marissa Mallinger</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
   <style>
     :root {
-      --bg-light: #fdf8f3;
-      --accent: #8c5e3c; /* tea-brown accent */
-      --text-dark: #3e2c20;
+      --navy:        #0b1520;
+      --dark-green:  #162b22;
+      --mid-green:   #2f614b;
+      --accent-teal: #4da67a;
+      --accent-glow: rgba(77, 166, 122, 0.2);
+      --text-light:  #e8f0ec;
+      --text-muted:  #8aab9a;
     }
 
+    *, *::before, *::after { box-sizing: border-box; }
+
     body {
-      background-color: var(--bg-light);
-      color: var(--text-dark);
       font-family: 'Inter', sans-serif;
-      font-size: clamp(0.9rem, 2vw, 1rem);
-      overflow-x: hidden;
+      margin: 0;
+      padding: 0;
+      background: var(--dark-green);
+      color: var(--text-light);
+      min-height: 100vh;
     }
 
     .hero-banner {
-      background-color: #ead324;
-      height: 18vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: white;
+      background: var(--navy);
+      padding: 5rem 2rem 3rem;
       text-align: center;
       position: relative;
     }
 
+    .hero-banner::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 10%; right: 10%;
+      height: 1px;
+      background: linear-gradient(to right, transparent, rgba(77,166,122,0.3), transparent);
+    }
+
+    .hero-eyebrow {
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent-teal);
+      margin: 0 0 0.75rem;
+    }
+
     .hero-banner h1 {
-      z-index: 1;
-      font-size: clamp(1.8rem, 5vw, 2.5rem);
-      text-shadow: 1px 1px 8px rgba(0, 0, 0, 0.5);
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.8rem, 4vw, 3rem);
+      color: white;
+      margin: 0 0 1rem;
+      font-weight: 700;
+      line-height: 1.2;
     }
 
-    .project-content {
-      max-width: 95%;
-      margin: 3rem auto;
-      margin-top: 1.5rem;
-      padding: 0 1.5rem;
-    }
-
-    .three-column-layout {
-      display: grid;
-      grid-template-columns: 1.5fr 2fr 0.9fr;
-      gap: 4rem;
-      align-items: start;
-    }
-
-    .left-column,
-    .middle-column,
-    .right-column {
+    .hero-tags {
       display: flex;
-      flex-direction: column;
-      gap: 1.5rem;
-      align-items: center;
+      gap: 0.5rem;
+      justify-content: center;
+      flex-wrap: wrap;
     }
 
-    .left-box, .middle-box, .right-box {
-      background-color: #ffffff;
-      padding: 1rem;
-      border-radius: 16px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
-      max-width: 600px;
-      width: 100%;
-    }
-
-    .intro {
-      text-align: center;
-    }
-
-    .details-section ul {
-      padding-left: 1.2rem;
-    }
-
-    .details-section li {
-      font-size: clamp(0.85rem, 2.5vw, 1rem);
-      margin-bottom: 0.5rem;
-    }
-
-    .project-video {
-      width: 100%;
-      max-width: 100%;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-    }
-
-    h2 {
-      color: var(--accent);
-      text-align: center;
-      font-size: clamp(1.2rem, 3vw, 1.5rem);
-      margin-bottom: 1rem;
+    .hero-tag {
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent-teal);
+      background: rgba(77,166,122,0.1);
+      border: 1px solid rgba(77,166,122,0.25);
+      padding: 0.25rem 0.7rem;
+      border-radius: 999px;
     }
 
     .back-link {
-      display: inline-block;
-      /* margin-top: .5rem; */
-      color: var(--accent);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      color: var(--text-muted);
       text-decoration: none;
-      font-weight: bold;
-      align-self: flex-start;
+      font-size: 0.82rem;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      padding: 2rem 3rem 0;
+      transition: color 0.2s ease;
     }
 
-    .back-link:hover {
-      text-decoration: underline;
+    .back-link:hover { color: var(--accent-teal); }
+
+    .project-content {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 3rem 2rem 6rem;
+      display: grid;
+      grid-template-columns: 1fr 1.5fr;
+      gap: 3rem;
+      align-items: start;
     }
 
-    @media (max-width: 768px) {
-      .three-column-layout {
-        display: flex;
-        flex-direction: column;
-        gap: 2rem;
-        align-items: center;
-      }
-
-      .left-column,
-      .middle-column,
-      .right-column {
-        width: 100%;
-      }
+    @media (max-width: 900px) {
+      .project-content { grid-template-columns: 1fr; }
     }
 
-  #menu-toggle {
-    position: fixed;
-    top: 1rem;
-    right: 1rem;
-    background: rgba(34, 24, 18, 0.85);
-    border: none;
-    color: #ffe6c7;
-    font-size: 1.5rem;
-    padding: 0.5rem 0.75rem;
-    border-radius: 6px;
-    z-index: 1001;
-    cursor: pointer;
-  }
+    .left-column {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
 
-  #menu-toggle.hidden {
-    display:none;
-  }
+    .intro-text {
+      font-size: 0.92rem;
+      font-weight: 300;
+      line-height: 1.8;
+      color: var(--text-light);
+      opacity: 0.88;
+      margin: 0;
+    }
+
+    .section-divider {
+      height: 1px;
+      background: linear-gradient(to right, rgba(77,166,122,0.2), transparent);
+      border: none;
+      margin: 0;
+    }
+
+    .detail-block h2 {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--accent-teal);
+      margin: 0 0 0.75rem;
+    }
+
+    .detail-block ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+
+    .detail-block ul li {
+      font-size: 0.88rem;
+      font-weight: 300;
+      color: var(--text-muted);
+      line-height: 1.6;
+      padding-left: 1rem;
+      position: relative;
+    }
+
+    .detail-block ul li::before {
+      content: '–';
+      position: absolute;
+      left: 0;
+      color: var(--accent-teal);
+      opacity: 0.5;
+    }
+
+    .site-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--accent-teal);
+      text-decoration: none;
+      font-size: 0.88rem;
+      font-weight: 500;
+      border: 1px solid rgba(77,166,122,0.35);
+      padding: 0.6rem 1.2rem;
+      border-radius: 6px;
+      transition: all 0.25s ease;
+      width: fit-content;
+    }
+
+    .site-link:hover {
+      background: rgba(77,166,122,0.1);
+      border-color: var(--accent-teal);
+      color: white;
+    }
+
+    .right-column {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .screenshot {
+      width: 100%;
+      height: auto;
+      border-radius: 12px;
+      border: 1px solid rgba(77,166,122,0.18);
+      box-shadow: 0 12px 35px rgba(0,0,0,0.4);
+      transition: transform 0.3s ease;
+    }
+
+    .screenshot:hover { transform: translateY(-3px); }
+
+    footer {
+      text-align: center;
+      padding: 1.5rem;
+      background: var(--navy);
+      color: rgba(255,255,255,0.25);
+      font-size: 0.8rem;
+      letter-spacing: 0.06em;
+    }
   </style>
 </head>
 <body>
 
-  <button id="menu-toggle" aria-label="Toggle menu">
-    ☰
-  </button>
-
-  <!-- Nav Menu -->
   <div id="navbar-placeholder"></div>
-
   <script>
     fetch('../navbar.html')
       .then(res => res.text())
       .then(html => {
         document.getElementById('navbar-placeholder').innerHTML = html;
-
-        // Load navbar behavior
         const script = document.createElement('script');
         script.src = '../utils/navbar.js';
         document.body.appendChild(script);
-
-        // Modify nav for this page
-        const nav = document.querySelector("nav");
-        if (nav) {
-          nav.id = "main-nav";
-          nav.classList.add("hidden");
-        }
       });
   </script>
 
-
-  <section class="hero-banner">
+  <div class="hero-banner">
+    <p class="hero-eyebrow">Client Project</p>
     <h1>Finishing Touch Sealcoating Website</h1>
-  </section>
-
-  <main class="project-content three-column-layout">
-
-    <!-- LEFT COLUMN -->
-    <div class="left-column">
-      <div class="left-box">
-        <div class="intro">
-          <p>
-            I worked with the owner of a Sealcoating company to create a website that would help him reach more customers and provide information about his services. The site includes a contact form, service descriptions, and a gallery of completed projects. The site includes SendGrid emailing service, which allows users to easily get in touch with the business.
-            <br><br>
-            After initial deployment, I continued to work with the owner to update the site with new content and improve its SEO. This included adding new service pages, optimizing images, and implementing best practices for search engine visibility.
-          </p>
-        </div>
-      </div>
-      <a href="../projects2.html" class="back-link">← Back to Projects</a>
+    <div class="hero-tags">
+      <span class="hero-tag">HTML/CSS/JS</span>
+      <span class="hero-tag">Vercel</span>
+      <span class="hero-tag">SEO</span>
     </div>
+  </div>
 
-    <!-- MIDDLE COLUMN -->
-    <div class="middle-column">
-      <div class="middle-box">
-        <img src="../img/FTSealcoatingPic.png" alt="Sealcoating Website Screenshot" class="project-video">
-      </div>
-    </div>
+  <a href="../projects2.html" class="back-link">← Back to Projects</a>
 
-    <!-- RIGHT COLUMN -->
-    <div class="right-column">
-      <div class="right-box">
+  <main class="project-content">
+
+    <!-- LEFT -->
+    <div class="left-column" data-aos="fade-right" data-aos-duration="700">
+
+      <p class="intro-text">
+        I worked with the owner of a sealcoating company to create a website that would help him
+        reach more customers and provide information about his services. The site includes a contact
+        form, service descriptions, and a gallery of completed projects.
+      </p>
+
+      <hr class="section-divider" />
+
+      <p class="intro-text">
+        After initial deployment, I continued working with the owner to update the site with new
+        content and improve its SEO — adding new service pages, optimizing images, and implementing
+        best practices for search engine visibility.
+      </p>
+
+      <hr class="section-divider" />
+
+      <div class="detail-block">
         <h2>Tools Used</h2>
-        <ul class="details-section">
+        <ul>
           <li>HTML / CSS / JavaScript</li>
           <li>Vercel</li>
-          <li>SendGrid API</li>
-          <li>Github for version control</li>
+          <li>GitHub for version control</li>
           <li>Google Search Console</li>
         </ul>
       </div>
-      <div class="right-box" style="text-align: center;">
-        <h2>Website Link</h2>
-        <p>
-          <a href="https://finishingtouchsealcoating.com">Finishing Touch Sealcoating</a>
-        </p>
+
+      <div>
+        <p style="font-size:0.72rem; font-weight:600; letter-spacing:0.15em; text-transform:uppercase; color:var(--accent-teal); margin:0 0 0.75rem;">Live Site</p>
+        <a href="https://finishingtouchsealcoating.com" class="site-link" target="_blank">
+          finishingtouchsealcoating.com →
+        </a>
       </div>
+
+    </div>
+
+    <!-- RIGHT -->
+    <div class="right-column" data-aos="fade-left" data-aos-duration="700" data-aos-delay="100">
+      <img src="../img/FTSealcoatingPic.png" alt="Finishing Touch Sealcoating Website Screenshot" class="screenshot" />
     </div>
 
   </main>
+
+  <footer>
+    <p>&copy; 2025 Marissa Mallinger. All Rights Reserved.</p>
+  </footer>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({ offset: 100, duration: 700, once: true, easing: 'ease-out-cubic' });
+  </script>
 
 </body>
 </html>

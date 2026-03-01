@@ -3,78 +3,361 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>My Projects - Fall Inspired</title>
+  <title>My Projects – Marissa Mallinger</title>
 
-  
-  <link rel="stylesheet" href="./styles3.css">
-  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
+  <style>
+    :root {
+      --navy:        #0b1520;
+      --dark-navy:   #070f18;
+      --dark-green:  #162b22;
+      --mid-green:   #2f614b;
+      --accent-teal: #4da67a;
+      --accent-glow: rgba(77, 166, 122, 0.2);
+      --text-light:  #e8f0ec;
+      --text-muted:  #8aab9a;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: var(--navy);
+      color: var(--text-light);
+      overflow-x: hidden;
+    }
+
+    /* ── Three.js canvas overlay ── */
+    .model {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw; height: 100vh;
+      z-index: 10;
+      pointer-events: none;
+    }
+
+    /* ── Hero ── */
+    .projects-hero {
+      position: relative;
+      height: 100vh;
+      background: url('./img/starry-sky.jpg') center center / cover no-repeat;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .projects-hero::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, rgba(7,15,24,0.3) 0%, rgba(7,15,24,0.7) 100%);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-eyebrow {
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent-teal);
+      margin-bottom: 1rem;
+    }
+
+    .hero-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.5rem, 6vw, 5rem);
+      color: white;
+      margin: 0 0 0.5rem;
+      line-height: 1.1;
+      text-shadow: 0 2px 40px rgba(0,0,0,0.5);
+    }
+
+    .hero-subtitle {
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.4);
+      letter-spacing: 0.1em;
+      margin: 0;
+    }
+
+    .hero-scroll-hint {
+      position: absolute;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      color: rgba(255,255,255,0.3);
+      font-size: 0.7rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+
+    .scroll-arrow {
+      width: 18px; height: 18px;
+      border-right: 1.5px solid rgba(255,255,255,0.25);
+      border-bottom: 1.5px solid rgba(255,255,255,0.25);
+      transform: rotate(45deg);
+      animation: arrowBounce 2s ease-in-out infinite;
+    }
+
+    @keyframes arrowBounce {
+      0%, 100% { transform: rotate(45deg) translateY(0); }
+      50%       { transform: rotate(45deg) translateY(5px); }
+    }
+
+    /* ── Projects section ── */
+    #react-projects-root {
+      background: var(--navy);
+      min-height: 100vh;
+      padding: 5rem 2rem 7rem;
+      position: relative;
+      z-index: 20;
+    }
+
+    #react-projects-root::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 10%; right: 10%;
+      height: 1px;
+      background: linear-gradient(to right, transparent, rgba(77,166,122,0.25), transparent);
+    }
+
+    /* ── Filter buttons ── */
+    .filter-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      justify-content: center;
+      margin-bottom: 4rem;
+    }
+
+    .filter-buttons button {
+      background: transparent;
+      color: var(--text-muted);
+      padding: 0.4rem 1.1rem;
+      border: 1px solid rgba(77,166,122,0.25);
+      border-radius: 999px;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      cursor: pointer;
+      transition: all 0.25s ease;
+    }
+
+    .filter-buttons button:hover {
+      border-color: var(--accent-teal);
+      color: var(--text-light);
+      background: rgba(77,166,122,0.06);
+    }
+
+    .filter-buttons button.active {
+      background: rgba(77,166,122,0.12);
+      border-color: var(--accent-teal);
+      color: var(--accent-teal);
+    }
+
+    /* ── Project grid ── */
+    .project-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 1.5rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    /* ── Glassy project cards ── */
+    .project-card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 14px;
+      overflow: hidden;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .project-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(77,166,122,0.3);
+      box-shadow: 0 20px 50px rgba(0,0,0,0.4), 0 0 30px rgba(77,166,122,0.08);
+    }
+
+    .project-image-wrap {
+      width: 100%;
+      height: 180px;
+      overflow: hidden;
+      background: rgba(0,0,0,0.2);
+    }
+
+    .project-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.4s ease;
+    }
+
+    .project-card:hover .project-image {
+      transform: scale(1.04);
+    }
+
+    .project-card-body {
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+      flex: 1;
+    }
+
+    .project-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+    }
+
+    .project-tag {
+      font-size: 0.68rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent-teal);
+      background: rgba(77,166,122,0.1);
+      border: 1px solid rgba(77,166,122,0.2);
+      padding: 0.2rem 0.6rem;
+      border-radius: 999px;
+    }
+
+    .project-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      color: white;
+      margin: 0;
+      line-height: 1.4;
+    }
+
+    .project-title a {
+      color: inherit;
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    .project-title a:hover {
+      color: var(--accent-teal);
+    }
+
+    .project-description {
+      font-size: 0.88rem;
+      font-weight: 300;
+      color: var(--text-muted);
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    .project-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      margin-top: auto;
+      padding-top: 1rem;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent-teal);
+      text-decoration: none;
+      transition: gap 0.2s ease, opacity 0.2s ease;
+    }
+
+    .project-link:hover {
+      gap: 0.65rem;
+      opacity: 0.8;
+    }
+
+    /* ── Footer ── */
+    footer {
+      text-align: center;
+      padding: 1.5rem;
+      background: var(--dark-navy);
+      color: rgba(255,255,255,0.2);
+      font-size: 0.8rem;
+      letter-spacing: 0.06em;
+      position: relative;
+      z-index: 20;
+    }
+  </style>
 </head>
-
 <body>
+
+  <!-- Three.js star animation target -->
   <div class="model"></div>
 
   <div id="navbar-placeholder"></div>
-
   <script>
     fetch('./navbar.html')
-      .then(response => response.text())
+      .then(r => r.text())
       .then(html => {
         document.getElementById('navbar-placeholder').innerHTML = html;
-
-        // Dynamically load navbar.js after HTML is injected
-        const script = document.createElement('script');
-        script.src = './utils/navbar.js';
-        document.body.appendChild(script);
+        const s = document.createElement('script');
+        s.src = './utils/navbar.js';
+        document.body.appendChild(s);
       });
   </script>
 
-  <!-- Floating Leaf Canvas Area -->
-  
-  <section class="fall-hero">
-    <div class="fall-overlay">
-      <h1 class="hero-name">My Projects - WIP</h1>
-      <p class="hero-text">Inspired by Autumn's motion and mood</p>
+  <!-- ── Hero ── -->
+  <section class="projects-hero">
+    <div class="hero-content">
+      <p class="hero-eyebrow">Portfolio</p>
+      <h1 class="hero-title">My Projects</h1>
+      <p class="hero-subtitle">Work in progress</p>
+    </div>
+    <div class="hero-scroll-hint">
+      <span>Scroll</span>
+      <div class="scroll-arrow"></div>
     </div>
   </section>
 
-  
-  <section class="project-section" id="react-projects-root">
-    <!-- React will inject content here -->
-  </section>
-  
-  
-  
-  
-  
+  <!-- ── React project cards ── -->
+  <section id="react-projects-root"></section>
 
   <footer>
     <p>&copy; 2025 Marissa Mallinger. All Rights Reserved.</p>
   </footer>
 
-  <script src="https://unpkg.com/framer-motion@5.5.5/dist/framer-motion.umd.js"></script>
+  <!-- Scripts -->
+  <script src="https://unpkg.com/lenis@1.1.16/dist/lenis.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+  <script src="./libs/react-transition-group.js"></script>
+  <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script type="text/babel" src="./utils/react-project.js"></script>
+  <script src="./utils/script3.js"></script>
 
-  <!-- React + Babel -->
-<script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
-<script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
-
-<!-- ✅ Local fallback -->
-<script src="./libs/react-transition-group.js"></script>
-
-<script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
-
-<!-- ✅ Other libraries -->
-<script src="https://unpkg.com/lenis@1.1.16/dist/lenis.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-
-<!-- ✅ React JSX file (must come after Babel) -->
-<script type="text/babel" src="./utils/react-project.js"></script>
-
-<!-- ✅ Your 3D + theme toggle script -->
-<script src="./utils/script3.js"></script>
-
-
+  <script>
+    AOS.init({ offset: 150, duration: 700, once: true, easing: 'ease-out-cubic' });
+  </script>
 </body>
 </html>

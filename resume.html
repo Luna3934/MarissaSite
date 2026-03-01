@@ -3,256 +3,230 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Resume - Marissa Mallinger</title>
+  <title>Resume – Marissa Mallinger</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
   <style>
     :root {
-      --bg: #47463f;           /* light beach sand */
-      --accent: #ff914d;       /* vibrant coral */
-      --text: #2c2c2c;         /* dark for contrast */
-      --link-bg: #fca74d;      /* lighter coral highlight */
+      --navy:        #0b1520;
+      --dark-green:  #162b22;
+      --mid-green:   #2f614b;
+      --accent-teal: #4da67a;
+      --accent-glow: rgba(77, 166, 122, 0.2);
+      --text-light:  #e8f0ec;
+      --text-muted:  #8aab9a;
     }
 
-    .light-side {
-      --bg: #fef9e6;           /* light beach sand */
-      --accent: #ff914d;       /* vibrant coral */
-      --text: #2c2c2c;         /* dark for contrast */
-      --link-bg: #ffbb70;      /* lighter coral highlight */
-    }
+    *, *::before, *::after { box-sizing: border-box; }
 
     body {
-      /* margin: 0; */
+      font-family: 'Inter', sans-serif;
+      margin: 0;
       padding: 0;
-      background-color: var(--bg);
-      color: var(--text);
-      font-family: 'Segoe UI', sans-serif;
+      background: var(--dark-green);
+      color: var(--text-light);
+      min-height: 100vh;
       display: flex;
       flex-direction: column;
-      align-items: center;
-      min-height: 100vh;
-      /* background: linear-gradient(180deg, #ffe29a, #ffa751, #ff7b00); */
     }
 
-    h1 {
-      margin: 2rem 0 0 0;
-      font-size: 2rem;
-      color: var(--accent);
+    /* ── Nav placeholder ── */
+    #navbar-placeholder { position: relative; z-index: 100; }
+
+    /* ── Hero header ── */
+    .resume-hero {
       text-align: center;
+      padding: 5rem 2rem 3rem;
+      position: relative;
     }
 
-     h2 {
-      /* margin-top: 2rem; */
-      margin: 1rem 0 0 0;
-      font-size: 1.5rem;
-      color: var(--accent);
-      text-align: center;
+    .resume-hero::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 10%; right: 10%;
+      height: 1px;
+      background: linear-gradient(to right, transparent, rgba(77,166,122,0.25), transparent);
     }
 
-    .pdf-frame {
-      width: 90%;
-      max-width: 800px;
-      height: 90vh;
-      margin: 2rem 0;
-      border: none;
-      border-radius: 12px;
-      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
-    }
-
-    .pdf-image-mobile {
-    display: none;
-    width: 100%;
-    height: auto;
-    margin: 1rem 1rem 1rem 1rem;
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    }
-
-    /* Mobile override */
-    @media (max-width: 768px) {
-    .pdf-frame {
-        display: none;
-    }
-
-    .pdf-image-mobile {
-        display: block;
-    }
-    }
-
-    .resume-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
-      margin-bottom: 3rem;
-      justify-content: center;
-    }
-
-    .resume-links a {
-      background-color: var(--link-bg);
-      color: black;
-      padding: 0.6rem 1rem;
-      border-radius: 8px;
-      text-decoration: none;
+    .resume-eyebrow {
+      font-size: 0.75rem;
       font-weight: 500;
-      transition: background 0.2s ease;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent-teal);
+      margin-bottom: 0.75rem;
     }
 
-    .resume-links a:hover {
-      background-color: var(--accent);
+    .resume-hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 5vw, 3.5rem);
       color: white;
+      margin: 0 0 1rem;
+      font-weight: 700;
     }
 
-    h2::before {
-    content: '🌞';
-    animation: bounce 1.5s infinite;
-    display: inline-block;
-    margin-right: 0.5rem;
+    .resume-hero p {
+      font-size: 0.95rem;
+      font-weight: 300;
+      color: var(--text-muted);
+      max-width: 420px;
+      margin: 0 auto;
+      line-height: 1.7;
     }
 
-     h2::after {
-    content: '🌞';
-    animation: bounce 1.5s infinite;
-    display: inline-block;
-    margin-left: 0.5rem;
+    /* ── Download buttons ── */
+    .resume-actions {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      padding: 2.5rem 2rem 3rem;
+      flex-wrap: wrap;
     }
 
-    @keyframes bounce {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-5px); }
+    .btn-download {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: transparent;
+      color: var(--accent-teal);
+      padding: 0.65rem 1.75rem;
+      border: 1px solid rgba(77,166,122,0.4);
+      border-radius: 6px;
+      text-decoration: none;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      transition: all 0.3s ease;
     }
 
-    nav {
-    position: fixed;
-    top: 2rem;
-    right: 2rem;
-    z-index: 1000;
-    background-color: rgba(15, 25, 35, 0.8) !important; /* subtle dark glass */
-    padding: 1rem;
-    border-radius: 8px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(8px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-  }
-  
-  nav ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    align-items: flex-end;
-  }
-  
-  nav a {
-    color: #f0f5f2 !important;
-    text-decoration: none;
-    font-weight: 500;
-    transition: color 0.3s ease;
-  }
-  
-  nav a:hover {
-    color: #9db7ad; /* soft highlight */
-  }
-
-  #theme-toggle {
-    background: none;
-    border: none;
-    color: #f0f5f2;
-    font-size: 1.2rem;
-    cursor: pointer;
-    transition: transform 0.3s ease;
-  }
-
-  .wave-container {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    overflow: hidden;
-    line-height: 0;
-    z-index: -1;
+    .btn-download:hover {
+      background: rgba(77,166,122,0.1);
+      border-color: var(--accent-teal);
+      color: white;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px var(--accent-glow);
     }
 
-    
-
-    .animated-sun {
-    width: 100px;
-    height: 100px;
-    background: radial-gradient(circle, #ffd700, #ffae00);
-    border-radius: 50%;
-    position: absolute;
-    top: 40px;
-    left: 40px;
-    animation: float 5s ease-in-out infinite;
-    z-index: 1;
+    .btn-download svg {
+      width: 14px;
+      height: 14px;
+      flex-shrink: 0;
     }
 
-    @keyframes float {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-20px); }
+    /* ── PDF viewer ── */
+    .pdf-wrapper {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      padding: 0 2rem 5rem;
     }
 
-    @media (max-width: 780px) {
-    .animated-sun {
-        display: none;
-    }
+    .pdf-card {
+      width: 100%;
+      max-width: 820px;
+      border-radius: 14px;
+      overflow: hidden;
+      border: 1px solid rgba(77,166,122,0.18);
+      box-shadow: 0 30px 70px rgba(0,0,0,0.5), 0 0 40px rgba(77,166,122,0.06);
     }
 
+    .pdf-frame {
+      width: 100%;
+      height: 88vh;
+      border: none;
+      display: block;
+      background: white;
+    }
+
+    /* Mobile image fallback */
+    .pdf-image-mobile {
+      display: none;
+      width: 100%;
+      height: auto;
+    }
+
+    @media (max-width: 768px) {
+      .pdf-frame { display: none; }
+      .pdf-image-mobile { display: block; }
+      .pdf-card { border-radius: 10px; }
+      .resume-hero { padding: 4rem 2rem 2.5rem; }
+    }
+
+    /* ── Footer ── */
     footer {
-    text-align: center;
-    padding: 1rem;
-    background: var(--primary-green);
-    color: white;
-    font-size: 0.9rem;
-  }
-
+      text-align: center;
+      padding: 1.5rem;
+      background: var(--navy);
+      color: rgba(255,255,255,0.25);
+      font-size: 0.8rem;
+      letter-spacing: 0.06em;
+      margin-top: auto;
+    }
   </style>
 </head>
 <body>
 
   <div id="navbar-placeholder"></div>
-
   <script>
     fetch('./navbar.html')
-      .then(response => response.text())
+      .then(r => r.text())
       .then(html => {
         document.getElementById('navbar-placeholder').innerHTML = html;
-
-        // Dynamically load navbar.js after HTML is injected
-        const script = document.createElement('script');
-        script.src = './utils/navbar.js';
-        document.body.appendChild(script);
+        const s = document.createElement('script');
+        s.src = './utils/navbar.js';
+        document.body.appendChild(s);
       });
   </script>
 
-    <div class="animated-sun"></div>
-
-
-  <h1>Marissa Mallinger - Resume Hub</h1>
-  <h2>Inspired by Summer</h2>
-
-  <!-- PDF View -->
-  <!-- Desktop: PDF iframe -->
-    <iframe class="pdf-frame" src="./pdfs/Long Resume.pdf"></iframe>
-
-    <!-- Mobile: Image fallback -->
-    <img class="pdf-image-mobile" src="./img/Long Resume1.jpg" alt="Resume preview page 1" />
-    <img class="pdf-image-mobile" src="./img/Long Resume2.jpg" alt="Resume preview page 2" />
-
-
-  <!-- Resume Links -->
-  <div class="resume-links">
-    <a href="./pdfs/Long Resume.pdf" download>Download Comprehensive Resume</a>
-    <a href="./pdfs/Short Resume.pdf" download>Download One-Page Resume</a>
+  <!-- ── Header ── -->
+  <div class="resume-hero" data-aos="fade-up">
+    <p class="resume-eyebrow">Marissa Mallinger</p>
+    <h1>Resume</h1>
+    <p>Download a copy or browse it below.</p>
   </div>
 
-  <div class="wave-container">
-    <svg viewBox="0 0 1440 320"><path fill="#fb6e12" fill-opacity="1" d="M0,96L60,112C120,128,240,160,360,170.7C480,181,600,171,720,165.3C840,160,960,160,1080,154.7C1200,149,1320,139,1380,133.3L1440,128L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path></svg>
+  <!-- ── Download buttons ── -->
+  <div class="resume-actions" data-aos="fade-up" data-aos-delay="100">
+    <a href="./pdfs/Long Resume.pdf" download class="btn-download">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+        <polyline points="7 10 12 15 17 10"/>
+        <line x1="12" y1="15" x2="12" y2="3"/>
+      </svg>
+      Comprehensive Resume
+    </a>
+    <a href="./pdfs/Short Resume.pdf" download class="btn-download">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+        <polyline points="7 10 12 15 17 10"/>
+        <line x1="12" y1="15" x2="12" y2="3"/>
+      </svg>
+      One-Page Resume
+    </a>
+  </div>
+
+  <!-- ── PDF viewer ── -->
+  <div class="pdf-wrapper" data-aos="fade-up" data-aos-delay="150">
+    <div class="pdf-card">
+      <iframe class="pdf-frame" src="./pdfs/Long Resume.pdf"></iframe>
+      <img class="pdf-image-mobile" src="./img/Long Resume1.jpg" alt="Resume page 1" />
+      <img class="pdf-image-mobile" src="./img/Long Resume2.jpg" alt="Resume page 2" />
+    </div>
   </div>
 
   <footer>
     <p>&copy; 2025 Marissa Mallinger. All Rights Reserved.</p>
   </footer>
 
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({ offset: 120, duration: 700, once: true, easing: 'ease-out-cubic' });
+  </script>
 
-  <script defer src="./utils/script3.js"></script>
 </body>
 </html>
