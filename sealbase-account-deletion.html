@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Delete Account – SealBase</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --ink: #0f1117;
+      --muted: #5a5f72;
+      --rule: #e2e4ec;
+      --accent: #7c3aed;
+      --danger: #dc2626;
+      --danger-light: #fef2f2;
+      --danger-border: #fecaca;
+      --bg: #fafafa;
+      --card: #ffffff;
+    }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      background: var(--bg);
+      color: var(--ink);
+      line-height: 1.75;
+      min-height: 100vh;
+    }
+
+    header {
+      background: var(--card);
+      border-bottom: 1px solid var(--rule);
+      padding: 2.5rem 2rem 2rem;
+      text-align: center;
+    }
+
+    .logo-mark {
+      display: inline-block;
+      width: 44px;
+      height: 44px;
+      background: var(--accent);
+      border-radius: 12px;
+      margin-bottom: 1rem;
+      position: relative;
+    }
+
+    .logo-mark::after {
+      content: 'S';
+      position: absolute;
+      inset: 0;
+      color: white;
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.4rem;
+      line-height: 44px;
+      text-align: center;
+      width: 100%;
+    }
+
+    header h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 2rem;
+      font-weight: 400;
+      letter-spacing: -0.02em;
+      color: var(--ink);
+    }
+
+    header p {
+      color: var(--muted);
+      font-size: 0.9rem;
+      margin-top: 0.4rem;
+    }
+
+    main {
+      max-width: 580px;
+      margin: 0 auto;
+      padding: 3rem 2rem 5rem;
+    }
+
+    .warning-box {
+      background: var(--danger-light);
+      border: 1px solid var(--danger-border);
+      border-left: 4px solid var(--danger);
+      border-radius: 8px;
+      padding: 1.2rem 1.5rem;
+      margin-bottom: 2rem;
+      font-size: 0.9rem;
+      color: #7f1d1d;
+    }
+
+    .warning-box strong {
+      display: block;
+      margin-bottom: 0.3rem;
+      font-weight: 500;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--rule);
+      border-radius: 12px;
+      padding: 2rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .card h2 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.2rem;
+      font-weight: 400;
+      margin-bottom: 1.25rem;
+      color: var(--ink);
+    }
+
+    .card p {
+      font-size: 0.9rem;
+      color: #2a2d3a;
+      margin-bottom: 1rem;
+    }
+
+    .data-list {
+      list-style: none;
+      padding: 0;
+      margin-bottom: 1.25rem;
+    }
+
+    .data-list li {
+      font-size: 0.9rem;
+      color: #2a2d3a;
+      padding: 0.25rem 0 0.25rem 1.2rem;
+      position: relative;
+    }
+
+    .data-list li::before {
+      content: '–';
+      position: absolute;
+      left: 0;
+      color: var(--danger);
+    }
+
+    .steps {
+      list-style: none;
+      padding: 0;
+      counter-reset: steps;
+      margin-bottom: 0;
+    }
+
+    .steps li {
+      counter-increment: steps;
+      font-size: 0.9rem;
+      color: #2a2d3a;
+      padding: 0.4rem 0 0.4rem 2.2rem;
+      position: relative;
+    }
+
+    .steps li::before {
+      content: counter(steps);
+      position: absolute;
+      left: 0;
+      top: 7px;
+      width: 20px;
+      height: 20px;
+      background: var(--accent);
+      color: white;
+      border-radius: 50%;
+      font-size: 0.72rem;
+      font-weight: 500;
+      text-align: center;
+      line-height: 20px;
+    }
+
+    label {
+      display: block;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--muted);
+      margin-bottom: 0.4rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    input[type="email"] {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      border: 1px solid var(--rule);
+      border-radius: 8px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.95rem;
+      color: var(--ink);
+      background: var(--bg);
+      outline: none;
+      transition: border-color 0.15s;
+      margin-bottom: 1.5rem;
+    }
+
+    input[type="email"]:focus { border-color: var(--accent); }
+
+    .checkbox-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      margin-bottom: 1.75rem;
+    }
+
+    input[type="checkbox"] {
+      margin-top: 3px;
+      width: 18px;
+      height: 18px;
+      accent-color: var(--danger);
+      flex-shrink: 0;
+      cursor: pointer;
+    }
+
+    .checkbox-row p {
+      font-size: 0.9rem;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    .confirmation-note {
+      background: #f5f3ff;
+      border: 1px solid #ddd6fe;
+      border-radius: 8px;
+      padding: 0.9rem 1.1rem;
+      font-size: 0.85rem;
+      color: #4c1d95;
+      margin-bottom: 1.25rem;
+      line-height: 1.5;
+    }
+
+    button {
+      width: 100%;
+      padding: 0.9rem;
+      background: var(--danger);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background 0.15s, opacity 0.15s;
+    }
+
+    button:hover:not(:disabled) { background: #b91c1c; }
+    button:disabled { opacity: 0.4; cursor: not-allowed; }
+
+    .success {
+      display: none;
+      background: #f0fdf4;
+      border: 1px solid #bbf7d0;
+      border-left: 4px solid #16a34a;
+      border-radius: 8px;
+      padding: 1.2rem 1.5rem;
+      font-size: 0.9rem;
+      color: #14532d;
+      margin-top: 1rem;
+      line-height: 1.6;
+    }
+
+    .divider {
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.85rem;
+      margin: 0.5rem 0 1.5rem;
+      position: relative;
+    }
+
+    .divider::before, .divider::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      width: 44%;
+      height: 1px;
+      background: var(--rule);
+    }
+
+    .divider::before { left: 0; }
+    .divider::after { right: 0; }
+
+    .alt-card {
+      background: var(--card);
+      border: 1px solid var(--rule);
+      border-radius: 12px;
+      padding: 2rem;
+    }
+
+    .alt-card h2 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.2rem;
+      font-weight: 400;
+      margin-bottom: 1.25rem;
+      color: var(--ink);
+    }
+
+    .alt-card p {
+      font-size: 0.9rem;
+      color: #2a2d3a;
+      margin-bottom: 1rem;
+    }
+
+    .alt-card .note {
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-top: 1rem;
+      margin-bottom: 0;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.8rem;
+      color: var(--muted);
+      border-top: 1px solid var(--rule);
+    }
+
+    footer a { color: var(--accent); text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+
+    @media (max-width: 600px) {
+      header h1 { font-size: 1.5rem; }
+      main { padding: 2rem 1.25rem 4rem; }
+      .card, .alt-card { padding: 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo-mark"></div>
+    <h1>Delete Your SealBase Account</h1>
+    <p>Request permanent removal of your account and all associated data</p>
+  </header>
+
+  <main>
+
+    <div class="warning-box">
+      <strong>⚠ This action is permanent and cannot be undone.</strong>
+      Once your SealBase account is deleted, all of your data is permanently removed. There is no way to recover it.
+    </div>
+
+    <!-- What gets deleted -->
+    <div class="card">
+      <h2>What data will be deleted</h2>
+      <p>All of the following data associated with your SealBase account will be <strong>permanently deleted within 7 days</strong> of your request being confirmed.</p>
+      <ul class="data-list">
+        <li>Your account credentials (email address, password or Google Sign-In)</li>
+        <li>Your business profile (name, logo, service rates, and settings)</li>
+        <li>All jobs, contacts, measurements, estimates, and proposals</li>
+        <li>All uploaded job site photos and files</li>
+      </ul>
+      <p style="margin-bottom:0;"><strong>No data is retained after deletion.</strong> We do not keep backups of your personal information.</p>
+    </div>
+
+    <!-- Request form -->
+    <div class="card">
+      <h2>Submit a deletion request</h2>
+
+      <label for="email">Your SealBase account email address</label>
+      <input type="email" id="email" placeholder="you@example.com" oninput="checkForm()" />
+
+      <div class="checkbox-row">
+        <input type="checkbox" id="confirm" onchange="checkForm()" />
+        <p>I understand that my SealBase account and all associated data will be permanently deleted and cannot be recovered.</p>
+      </div>
+
+      <div class="confirmation-note">
+        📧 After submitting, you will receive a confirmation email at the address provided. <strong>You must reply to that email to verify your identity</strong> before your account is deleted. Requests that are not confirmed will not be processed.
+      </div>
+
+      <button id="submitBtn" disabled onclick="submitRequest()">
+        Request Account Deletion
+      </button>
+
+      <div class="success" id="successMsg">
+        ✓ Your deletion request has been submitted.<br><br>
+        <strong>Next step:</strong> Check your inbox for a confirmation email from us and reply to verify your identity. Your account will be permanently deleted within 7 days of confirmation.
+      </div>
+    </div>
+
+    <div class="divider">or</div>
+
+    <!-- In-app option -->
+    <div class="alt-card">
+      <h2>Delete instantly from within the app</h2>
+      <p>If you still have access to your SealBase account, you can delete it immediately without contacting us:</p>
+      <ol class="steps">
+        <li>Open the <strong>SealBase</strong> app</li>
+        <li>Go to <strong>Business Profile</strong> (tap your profile icon)</li>
+        <li>Tap the <strong>delete icon</strong> in the top right corner</li>
+        <li>Follow the on-screen confirmation steps</li>
+      </ol>
+      <p class="note">Your account and all data will be deleted immediately and permanently.</p>
+    </div>
+
+  </main>
+
+  <footer>
+    <a href="/sealbase-privacy">Privacy Policy</a> &nbsp;·&nbsp; &copy; 2026 SealBase
+  </footer>
+
+  <script>
+    function checkForm() {
+      const email = document.getElementById('email').value.trim();
+      const confirmed = document.getElementById('confirm').checked;
+      const valid = email.length > 0 && email.includes('@') && confirmed;
+      document.getElementById('submitBtn').disabled = !valid;
+    }
+
+    function submitRequest() {
+      const email = document.getElementById('email').value.trim();
+      const subject = encodeURIComponent('SealBase Account Deletion Request');
+      const body = encodeURIComponent(
+        `Account Deletion Request\n\nAccount email: ${email}\n\nThe user has confirmed they understand this action is permanent and cannot be undone.\n\n---\nPlease reply to this email to confirm your identity before we process this request.`
+      );
+      window.location.href = `mailto:marissathedeveloper@gmail.com?subject=${subject}&body=${body}`;
+      document.getElementById('successMsg').style.display = 'block';
+      document.getElementById('submitBtn').disabled = true;
+    }
+  </script>
+
+</body>
+</html>
