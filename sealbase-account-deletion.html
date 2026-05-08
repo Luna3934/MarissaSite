@@ -410,7 +410,7 @@
       const email = document.getElementById('email').value.trim();
       const subject = encodeURIComponent('SealBase Account Deletion Request');
       const body = encodeURIComponent(
-        `Account Deletion Request\n\nAccount email: ${email}\n\nThe user has confirmed they understand this action is permanent and cannot be undone.\n\n---\nPlease reply to this email to confirm your identity before we process this request.`
+        `Account Deletion Request\n\nAccount email: ${email}\n\nThe user has confirmed they understand this action is permanent and cannot be undone.\n\n---\nPlease reply to the confirmation email once you receive it to confirm your identity before we process this request.`
       );
       window.location.href = `mailto:marissathedeveloper@gmail.com?subject=${subject}&body=${body}`;
       document.getElementById('successMsg').style.display = 'block';
